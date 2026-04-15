@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Crystal — Making AI crystal clear.</title>
+<meta name="description" content="Crystal builds purpose-built AI agents for specific job roles. Virtual employees that cost a fraction of the human equivalent, work around the clock, and get better every day." />
+<meta property="og:title" content="Crystal — Making AI crystal clear." />
+<meta property="og:description" content="Purpose-built AI agents for the jobs you're hiring for." />
+<meta property="og:type" content="website" />
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<main>
+  <header class="mast">
+    <div class="wordmark">
+      <span class="mark" aria-hidden="true">◆</span>
+      <span class="name">Crystal</span>
+    </div>
+    <p class="tagline">Making AI crystal clear.</p>
+  </header>
+
+  <section class="lede">
+    <h1>We build AI agents for the jobs you're hiring for.</h1>
+    <p>
+      Not chatbots. Not copilots. Purpose-built agents for specific roles —
+      L1 help desk, front office, and more on the way. They answer the phone,
+      work the queue, learn your business, and show up every day.
+    </p>
+  </section>
+
+  <section class="grid">
+    <article>
+      <h2>Who we are</h2>
+      <p>
+        Crystal is a small shop run by an engineer who got tired of watching
+        AI pitches that couldn't survive contact with a real job. We build
+        agents the way you'd hire an employee — trained on your business,
+        deployed to your tools, correctable when they get it wrong.
+      </p>
+    </article>
+
+    <article>
+      <h2>What we're doing</h2>
+      <p>
+        Taking the roles every business needs — support, reception, intake —
+        and turning them into virtual employees you can deploy in days.
+        Each agent is a managed service. You don't wrangle APIs or prompts.
+        We build it, run it, and improve it while you use it.
+      </p>
+    </article>
+
+    <article>
+      <h2>Why it matters</h2>
+      <p>
+        A help desk tech costs $55K. A receptionist costs $45K. Our agents
+        run at roughly 40–50% of the human equivalent, work 24/7, don't call
+        in sick, and get measurably better every week. Day one is rough.
+        Day 30 it's genius.
+      </p>
+    </article>
+  </section>
+
+  <section class="cta">
+    <h2>Get the build log.</h2>
+    <p>
+      We send occasional updates as agents ship, pilots wrap, and we learn
+      what actually works. No hype, no drip campaigns. Unsubscribe any time.
+    </p>
+
+    <!--
+      Newsletter endpoint: wire to Buttondown / ConvertKit / Resend later.
+      For now, replace action with your real endpoint, or leave as mailto.
+    -->
+    <form class="signup" action="mailto:austin@buildcrystal.ai" method="post" enctype="text/plain">
+      <label for="email" class="sr-only">Email address</label>
+      <input
+        id="email"
+        name="email"
+        type="email"
+        required
+        placeholder="you@work.com"
+        autocomplete="email"
+      />
+      <button type="submit">Sign me up</button>
+    </form>
+  </section>
+
+  <footer>
+    <p>&copy; <span id="year"></span> Build Crystal · By <a href="https://austinv.me">Austin VanAlstyne</a></p>
+    <p><a href="mailto:austin@buildcrystal.ai">austin@buildcrystal.ai</a></p>
+  </footer>
+</main>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
