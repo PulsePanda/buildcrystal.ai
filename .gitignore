@@ -3,3 +3,14 @@
 .idea/
 *.log
 designs/
+
+# Astro / Node
+node_modules/
+dist/
+.astro/
+.output/
+
+# Env
+.env
+.env.local
+.env.production

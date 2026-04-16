@@ -1,0 +1,130 @@
+---
+import Base from '../layouts/Base.astro';
+---
+
+<Base
+  title="About — Build Crystal"
+  description="Build Crystal is a small shop building AI workers for specific job roles. Run by Austin VanAlstyne."
+  active="about"
+>
+  <article class="about">
+    <div class="frame">
+      <header class="about-head">
+        <p class="eyebrow">About</p>
+        <h1>A small shop building AI workers for the jobs you're hiring for.</h1>
+        <p class="lede">
+          Build Crystal makes virtual employees for specific roles &mdash; receptionists, L1 help desk, more on the way.
+          We build them, deploy them, and run them as a managed service. Not chatbots. Not tools to configure. Workers.
+        </p>
+      </header>
+
+      <section class="about-block">
+        <h2>Who we are</h2>
+        <p>
+          Build Crystal is run by Austin VanAlstyne &mdash; an engineer who got tired of watching AI pitches that couldn't
+          survive contact with a real job. The company was built to make one bet: that the right shape of AI is a worker
+          you hire, not a tool you configure. You hire a receptionist, we build one. You need an L1, we build one.
+          You run your business. We run the worker.
+        </p>
+      </section>
+
+      <section class="about-block">
+        <h2>What we're doing</h2>
+        <p>
+          Taking the roles every business needs &mdash; support, reception, intake &mdash; and turning them into virtual
+          employees you can deploy in days. Each worker is a managed service: you don't wrangle APIs or prompts.
+          We come out. We onboard it. We hang out while it gets better.
+        </p>
+      </section>
+
+      <section class="about-block">
+        <h2>Why it matters</h2>
+        <p>
+          Hiring is one of the most expensive things a business can do. Posting, screening, interviewing, onboarding,
+          ramp &mdash; weeks of lost time before anyone's useful. A help desk tech costs $60K. A receptionist costs $50K.
+          Our workers run at roughly half the cost, work 24/7, don't call in sick, and get measurably better every week.
+          Day one is rough. Day 30 it's genius.
+        </p>
+      </section>
+
+      <section class="about-block">
+        <h2>We run our own.</h2>
+        <p>
+          Build Crystal's receptionist is a Crystal worker. So is our L1 help desk. If you want a live demo, you're
+          already talking to one when you call. That's not a marketing flourish &mdash; it's a reliability test we fail or
+          pass in public, every day.
+        </p>
+      </section>
+
+      <div class="about-cta">
+        <h3>Hiring for a role we cover?</h3>
+        <div class="cta-row">
+          <a href="/#roles" class="btn btn-secondary">See who's available</a>
+          <a href="#contact" class="btn btn-primary" data-hire data-role="general">Book a working session</a>
+        </div>
+      </div>
+    </div>
+  </article>
+</Base>
+
+<style>
+  .about { padding: clamp(3rem, 7vw, 5rem) 0 clamp(3rem, 6vw, 4rem); }
+  .about-head { max-width: 52rem; margin-bottom: clamp(2rem, 5vw, 3rem); }
+  .eyebrow {
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin: 0 0 1rem;
+  }
+  .about-head h1 {
+    font-size: clamp(2rem, 4.2vw, 2.9rem);
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    font-weight: 700;
+    margin: 0 0 1.25rem;
+    max-width: 22ch;
+  }
+  .about-head .lede {
+    font-size: clamp(1.05rem, 1.6vw, 1.2rem);
+    color: var(--ink-muted);
+    max-width: 52ch;
+    margin: 0;
+    line-height: 1.5;
+  }
+  .about-block {
+    padding: 1.75rem 0;
+    border-top: 1px solid var(--rule);
+    max-width: 56rem;
+  }
+  .about-block h2 {
+    font-size: clamp(1.3rem, 2.2vw, 1.6rem);
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    margin: 0 0 0.75rem;
+  }
+  .about-block p {
+    margin: 0;
+    color: var(--ink-2);
+    font-size: 1.02rem;
+    max-width: 62ch;
+    line-height: 1.6;
+  }
+  .about-cta {
+    margin-top: 2.5rem;
+    padding: 2rem 2.25rem;
+    background: var(--accent-wash);
+    border-radius: var(--radius);
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    max-width: 56rem;
+  }
+  .about-cta h3 {
+    margin: 0;
+    font-size: 1.25rem;
+    font-weight: 600;
+  }
+  .cta-row { display: flex; gap: 0.6rem; flex-wrap: wrap; }
+</style>

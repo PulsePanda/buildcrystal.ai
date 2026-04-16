@@ -1,0 +1,32 @@
+---
+interface Props {
+  size?: number;
+  class?: string;
+  title?: string;
+}
+
+const { size = 14, class: className, title } = Astro.props;
+---
+
+<svg
+  viewBox="0 0 24 32"
+  width={size}
+  height={(size * 32 / 24).toFixed(2)}
+  fill="none"
+  stroke="currentColor"
+  stroke-width="1.6"
+  stroke-linejoin="round"
+  stroke-linecap="round"
+  class:list={["crystal-mark", className]}
+  aria-hidden={title ? undefined : "true"}
+  role={title ? "img" : undefined}
+>
+  {title && <title>{title}</title>}
+  <path d="M12 1L23 12L12 31L1 12Z"/>
+  <path d="M1 12L23 12"/>
+  <path d="M12 1V31" stroke-opacity="0.55"/>
+</svg>
+
+<style>
+  .crystal-mark { display: block; }
+</style>

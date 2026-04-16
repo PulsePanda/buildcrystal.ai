@@ -1,0 +1,257 @@
+---
+// ContactModal — shared across all pages via Base layout.
+// Triggered by any element with [data-hire] and [data-role="..."].
+//
+// TODO: POST to a webhook handled by Crystal's own receptionist agent
+// once it's deployed. See memory: buildcrystal-site-decisions.md.
+// Until the agent is live, submissions are logged to console and the UI
+// shows a success state.
+---
+
+<dialog id="contact-modal" class="contact-dialog" aria-labelledby="contact-heading">
+  <form class="contact-form" id="contact-form" novalidate>
+    <button type="button" class="contact-close" aria-label="Close dialog" data-close>&times;</button>
+    <div class="contact-body">
+      <h2 id="contact-heading">Book a working session</h2>
+      <p class="contact-sub">Tell us about the seat. We'll reply within one business day to set up a 15-minute working session.</p>
+
+      <label>
+        <span>Your name</span>
+        <input type="text" name="name" required autocomplete="name" />
+      </label>
+      <label>
+        <span>Work email</span>
+        <input type="email" name="email" required autocomplete="email" />
+      </label>
+      <label>
+        <span>Business / company</span>
+        <input type="text" name="company" required autocomplete="organization" />
+      </label>
+      <label>
+        <span>Role you're hiring for</span>
+        <select name="role" required>
+          <option value="">Select a role</option>
+          <option value="receptionist">Receptionist</option>
+          <option value="l1-helpdesk">L1 Help Desk</option>
+          <option value="other">Something else</option>
+          <option value="general">General inquiry</option>
+        </select>
+      </label>
+      <label>
+        <span>Anything else? <em>optional</em></span>
+        <textarea name="message" rows="3" placeholder="How long has the seat been open? What's the pay range? Any wrinkles we should know about?"></textarea>
+      </label>
+
+      <div class="contact-actions">
+        <button type="button" class="btn btn-secondary" data-close>Cancel</button>
+        <button type="submit" class="btn btn-primary">Send</button>
+      </div>
+    </div>
+    <div class="contact-success" hidden>
+      <div class="contact-check" aria-hidden="true">&#10003;</div>
+      <h2>Thanks. We'll be in touch.</h2>
+      <p>We'll reply within one business day.</p>
+      <button type="button" class="btn btn-secondary" data-close>Close</button>
+    </div>
+  </form>
+</dialog>
+
+<script>
+  const dialog = document.getElementById('contact-modal') as HTMLDialogElement | null;
+  if (dialog) {
+    const form = document.getElementById('contact-form') as HTMLFormElement;
+    const roleSelect = form.querySelector('select[name="role"]') as HTMLSelectElement | null;
+    const headingEl = document.getElementById('contact-heading') as HTMLElement;
+    const subEl = dialog.querySelector('.contact-sub') as HTMLElement;
+    const bodyEl = dialog.querySelector('.contact-body') as HTMLElement;
+    const successEl = dialog.querySelector('.contact-success') as HTMLElement;
+
+    type PresetKey = 'receptionist' | 'l1-helpdesk' | 'other' | 'general';
+    const presets: Record<PresetKey, { h: string; s: string }> = {
+      'receptionist': {
+        h: 'Hire a receptionist',
+        s: "Tell us about the seat. We'll reply within one business day to schedule a 15-minute working session."
+      },
+      'l1-helpdesk': {
+        h: 'Hire an L1 help desk worker',
+        s: "Tell us about your queue. We'll reply within one business day to schedule a 15-minute working session."
+      },
+      'other': {
+        h: 'Tell us about your seat',
+        s: "If we can cover the role, we'll say so. If we can't, we'll be upfront about that."
+      },
+      'general': {
+        h: 'Book a working session',
+        s: "Tell us the shape of the seat. We'll reply within one business day."
+      }
+    };
+
+    function openModal(role: string | null) {
+      const r: PresetKey = (role && role in presets) ? role as PresetKey : 'general';
+      const preset = presets[r];
+      headingEl.textContent = preset.h;
+      subEl.textContent = preset.s;
+      bodyEl.hidden = false;
+      successEl.hidden = true;
+      form.reset();
+      if (roleSelect) roleSelect.value = r;
+      if (typeof dialog!.showModal === 'function') {
+        dialog!.showModal();
+      } else {
+        dialog!.setAttribute('open', '');
+      }
+    }
+
+    function closeModal() {
+      if (typeof dialog!.close === 'function') {
+        dialog!.close();
+      } else {
+        dialog!.removeAttribute('open');
+      }
+    }
+
+    document.querySelectorAll<HTMLElement>('[data-hire]').forEach((el) => {
+      el.addEventListener('click', (e) => {
+        e.preventDefault();
+        openModal(el.getAttribute('data-role'));
+      });
+    });
+
+    dialog.querySelectorAll<HTMLElement>('[data-close]').forEach((el) => {
+      el.addEventListener('click', (e) => {
+        e.preventDefault();
+        closeModal();
+      });
+    });
+
+    dialog.addEventListener('click', (e) => {
+      if (e.target === dialog) closeModal();
+    });
+
+    // TODO: wire to Crystal receptionist webhook once the agent is live.
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const data = Object.fromEntries(new FormData(form).entries());
+      console.log('[contact form — placeholder. Will webhook to Crystal receptionist once live.]', data);
+      bodyEl.hidden = true;
+      successEl.hidden = false;
+    });
+  }
+</script>
+
+<style>
+  .contact-dialog {
+    border: none;
+    padding: 0;
+    border-radius: 14px;
+    max-width: 30rem;
+    width: calc(100% - 2rem);
+    background: var(--paper);
+    color: var(--ink);
+    box-shadow: 0 20px 50px -10px rgba(21, 23, 26, 0.35);
+  }
+  .contact-dialog::backdrop {
+    background: rgba(21, 23, 26, 0.55);
+  }
+  .contact-body, .contact-success {
+    padding: 2rem 2rem 1.75rem;
+    position: relative;
+  }
+  .contact-close {
+    position: absolute;
+    top: 0.85rem; right: 0.85rem;
+    width: 34px; height: 34px;
+    background: transparent;
+    border: none;
+    font-size: 1.45rem;
+    line-height: 1;
+    cursor: pointer;
+    color: var(--ink-muted);
+    border-radius: 6px;
+    transition: background 120ms ease, color 120ms ease;
+    font-family: inherit;
+  }
+  .contact-close:hover { color: var(--ink); background: var(--rule); }
+  .contact-body h2,
+  .contact-success h2 {
+    font-size: 1.4rem;
+    letter-spacing: -0.015em;
+    margin: 0 0 0.4rem;
+    font-weight: 600;
+    padding-right: 2.5rem;
+  }
+  .contact-sub {
+    color: var(--ink-muted);
+    margin: 0 0 1.25rem;
+    font-size: 0.95rem;
+    line-height: 1.45;
+  }
+  .contact-form label {
+    display: block;
+    margin-bottom: 0.85rem;
+  }
+  .contact-form label > span {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 500;
+    margin-bottom: 0.3rem;
+    color: var(--ink-2);
+  }
+  .contact-form label > span em {
+    font-style: normal;
+    color: var(--ink-faint);
+    font-weight: 400;
+  }
+  .contact-form input[type="text"],
+  .contact-form input[type="email"],
+  .contact-form select,
+  .contact-form textarea {
+    width: 100%;
+    padding: 0.7rem 0.85rem;
+    font-size: 0.95rem;
+    border: 1px solid var(--rule-strong);
+    border-radius: 8px;
+    background: #fff;
+    color: var(--ink);
+    font-family: inherit;
+    transition: border-color 120ms ease, box-shadow 120ms ease;
+  }
+  .contact-form textarea { resize: vertical; min-height: 4.5rem; }
+  .contact-form input:focus,
+  .contact-form select:focus,
+  .contact-form textarea:focus {
+    outline: none;
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px var(--accent-wash);
+  }
+  .contact-actions {
+    display: flex;
+    gap: 0.6rem;
+    justify-content: flex-end;
+    margin-top: 0.75rem;
+    flex-wrap: wrap;
+  }
+  .contact-actions :global(.btn) { padding: 0.7rem 1.15rem; font-size: 0.95rem; }
+  .contact-success { text-align: center; padding: 2.5rem 2rem 2rem; }
+  .contact-check {
+    margin: 0 auto 1rem;
+    width: 52px; height: 52px;
+    border-radius: 50%;
+    background: var(--accent-wash);
+    color: var(--accent);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.7rem;
+    font-weight: 700;
+  }
+  .contact-success p {
+    color: var(--ink-muted);
+    margin: 0 0 1.5rem;
+    font-size: 0.95rem;
+  }
+
+  @media (max-width: 480px) {
+    .contact-body, .contact-success { padding: 1.75rem 1.25rem 1.5rem; }
+    .contact-actions { flex-direction: column-reverse; }
+    .contact-actions :global(.btn) { width: 100%; }
+  }
+</style>

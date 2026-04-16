@@ -1,0 +1,207 @@
+---
+import Base from '../../layouts/Base.astro';
+---
+
+<Base
+  title="Receptionist — Build Crystal"
+  description="A Crystal receptionist answers every call in under a ring, books and reschedules, and never calls in sick. ~$2,100/mo, ~50% of a human hire, ready in 3-5 days. First 28 days free."
+  active="workers"
+>
+  <article class="worker">
+    <div class="frame">
+      <header class="worker-head">
+        <p class="eyebrow">Available for hire</p>
+        <h1>Receptionist.</h1>
+        <p class="lede">
+          A virtual employee for your front desk. Answers every call in under a ring, books and reschedules against
+          your existing calendar, logs every interaction, and escalates judgment calls to you.
+        </p>
+        <div class="head-meta">
+          <div><strong>~$2,100 / mo</strong><span>~50% of the human hire</span></div>
+          <div><strong>24 / 7</strong><span>coverage, no sick days</span></div>
+          <div><strong>3&ndash;5 days</strong><span>from call to live</span></div>
+          <div><strong>28 days</strong><span>free pilot</span></div>
+        </div>
+        <div class="head-ctas">
+          <a href="#contact" class="btn btn-primary" data-hire data-role="receptionist">Hire a receptionist</a>
+          <a href="#details" class="btn btn-secondary">See what it does</a>
+        </div>
+      </header>
+
+      <section class="worker-section" id="details">
+        <h2>What a Crystal receptionist does.</h2>
+        <ul class="does">
+          <li>Answers every call in under a ring &mdash; identifies, captures intent, routes or books.</li>
+          <li>Books and reschedules appointments against your existing calendar.</li>
+          <li>Logs every interaction and follows up the next morning.</li>
+          <li>Escalates judgment calls to the owner with a one-line summary.</li>
+          <li>Works nights, weekends, holidays. Doesn't take lunch.</li>
+          <li>Every correction sticks &mdash; the same mistake doesn't happen twice.</li>
+        </ul>
+      </section>
+
+      <section class="worker-section">
+        <h2>What it doesn't do.</h2>
+        <p>
+          Anything that needs hands or a face. Walk-ins, signing for packages, in-person greetings &mdash; that's still
+          a human job, and we're upfront about it. Some businesses split the role: front desk stays human for the
+          physical part, while phones, calendar, and email move to a Crystal receptionist.
+        </p>
+      </section>
+
+      <section class="worker-section">
+        <h2>The math.</h2>
+        <table class="math-table">
+          <tbody>
+            <tr><th>Market salary (loaded)</th><td>~$50,000 / yr</td></tr>
+            <tr><th>Crystal receptionist</th><td>~$2,100 / mo</td></tr>
+            <tr><th>Coverage</th><td>24 / 7</td></tr>
+            <tr><th>Setup time</th><td>3&ndash;5 business days</td></tr>
+            <tr><th>Free trial</th><td>28 days, no card</td></tr>
+            <tr><th>Included</th><td>Worker, build-out, training, integrations, ongoing corrections, maintenance, updates.</td></tr>
+            <tr><th>Not included</th><td>Your Anthropic API bill &mdash; you own the account, we don't resell it.</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="worker-section">
+        <h2>The honest part.</h2>
+        <p>
+          Day one is rough, like any new hire. We tell you that up front. By day 30 it's outworking your last three.
+          Every correction makes it permanently smarter. Every night it reviews what it learned and shows up the next
+          morning a little better than it was. That's the trade: a rough first week in exchange for a worker that
+          compounds.
+        </p>
+        <p>
+          You're still in charge. There's a kill switch. If it's not working on day 28, we remove ourselves from your
+          tools the same day.
+        </p>
+      </section>
+
+      <div class="worker-cta">
+        <h3>Hiring a receptionist?</h3>
+        <p>Book a 15-minute working session. We'll show you what one of ours would do in your shop.</p>
+        <a href="#contact" class="btn btn-primary" data-hire data-role="receptionist">Book a working session</a>
+      </div>
+    </div>
+  </article>
+</Base>
+
+<style>
+  .worker { padding: clamp(3rem, 7vw, 5rem) 0 clamp(3rem, 6vw, 4rem); }
+  .worker-head { max-width: 56rem; margin-bottom: clamp(2rem, 5vw, 3rem); }
+  .eyebrow {
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin: 0 0 1rem;
+  }
+  .worker-head h1 {
+    font-size: clamp(2.2rem, 4.8vw, 3.5rem);
+    line-height: 1.05;
+    letter-spacing: -0.025em;
+    font-weight: 700;
+    margin: 0 0 1rem;
+  }
+  .worker-head .lede {
+    font-size: clamp(1.05rem, 1.6vw, 1.2rem);
+    color: var(--ink-muted);
+    max-width: 52ch;
+    margin: 0 0 1.75rem;
+    line-height: 1.5;
+  }
+  .head-meta {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+    gap: 1rem;
+    padding: 1.25rem 0;
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+    margin-bottom: 1.5rem;
+  }
+  .head-meta strong {
+    display: block;
+    font-size: 1.1rem;
+    color: var(--ink);
+    font-weight: 600;
+  }
+  .head-meta span {
+    font-size: 0.85rem;
+    color: var(--ink-muted);
+  }
+  .head-ctas { display: flex; gap: 0.6rem; flex-wrap: wrap; }
+
+  .worker-section {
+    padding: 2rem 0;
+    border-top: 1px solid var(--rule);
+    max-width: 56rem;
+  }
+  .worker-section h2 {
+    font-size: clamp(1.4rem, 2.4vw, 1.8rem);
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    margin: 0 0 1rem;
+  }
+  .worker-section p {
+    margin: 0 0 1rem;
+    color: var(--ink-2);
+    max-width: 62ch;
+    line-height: 1.6;
+  }
+  .worker-section p:last-child { margin-bottom: 0; }
+  .does {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+    color: var(--ink-2);
+    font-size: 1.02rem;
+    max-width: 62ch;
+  }
+  .does li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.7rem;
+    line-height: 1.5;
+  }
+  .does li::before {
+    content: "";
+    width: 5px; height: 5px;
+    background: var(--accent);
+    border-radius: 50%;
+    margin-top: 0.65em;
+    flex-shrink: 0;
+  }
+  .math-table {
+    width: 100%;
+    max-width: 56rem;
+    border-collapse: collapse;
+    font-size: 0.95rem;
+  }
+  .math-table th, .math-table td {
+    text-align: left;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid var(--rule);
+    vertical-align: top;
+  }
+  .math-table th {
+    font-weight: 500;
+    color: var(--ink-muted);
+    width: 32%;
+  }
+  .math-table td { color: var(--ink); }
+
+  .worker-cta {
+    margin-top: 2.5rem;
+    padding: 2rem 2.25rem;
+    background: var(--accent-wash);
+    border-radius: var(--radius);
+    max-width: 56rem;
+  }
+  .worker-cta h3 { margin: 0 0 0.4rem; font-size: 1.25rem; font-weight: 600; }
+  .worker-cta p { margin: 0 0 1rem; color: var(--ink-2); }
+</style>
