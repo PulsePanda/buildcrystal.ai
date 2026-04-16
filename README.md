@@ -20,10 +20,7 @@ Drop the folder onto any static host:
 - **S3 / anything** — upload the two files
 
 ## Newsletter form
-The form currently falls back to `mailto:austin@buildcrystal.ai`. To wire to a real service, replace the `<form action=...>` in `index.html`:
-- Buttondown: `https://buttondown.email/api/emails/embed-subscribe/<username>`
-- ConvertKit: form action from the embed snippet
-- Resend / custom: any endpoint that accepts `email` field
+Wired to Austin's personal Substack (`austinvanalstyne.substack.com`) — one list covers Crystal + everything else Austin publishes. The form POSTs to `https://austinvanalstyne.substack.com/api/v1/free?nojs=true`; on submit, Substack redirects to its confirmation page. To switch pubs, replace the `<form action=...>` URL in `index.html`.
 
 ## Logo
 Currently a unicode diamond (◆) as a placeholder for the wordmark. Swap for an SVG when the real mark exists.
