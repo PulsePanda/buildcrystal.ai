@@ -45,6 +45,29 @@ import Base from '../../layouts/Base.astro';
               <li>Works nights, weekends, holidays. Doesn't take lunch.</li>
               <li>Every correction sticks &mdash; the same mistake doesn't happen twice.</li>
             </ul>
+
+            <div class="sub-block">
+              <h3>What it doesn't do.</h3>
+              <p>
+                Anything that needs hands or a face. Walk-ins, signing for packages, in-person greetings
+                &mdash; that's still a human job, and we're upfront about it.
+              </p>
+              <p>
+                Some businesses split the role: front desk stays human for the physical part, while
+                phones, calendar, and email move to a Crystal receptionist.
+              </p>
+            </div>
+
+            <div class="fit-card">
+              <p class="fit-label">Typical fit</p>
+              <ul class="fit-list">
+                <li>Small-to-mid-sized business, $1M&ndash;$20M revenue</li>
+                <li>Receptionist seat open 2+ weeks, or turning over regularly</li>
+                <li>Owner currently covers phones between meetings</li>
+                <li>Appointment-based business (medical, dental, trades, services)</li>
+                <li>Open to splitting role if walk-ins require in-person</li>
+              </ul>
+            </div>
           </div>
 
           <div class="pc-body">
@@ -93,7 +116,7 @@ import Base from '../../layouts/Base.astro';
               </div>
               <div class="bubble worker">
                 <span class="who">Crystal</span>
-                <p>Thank you. You have a good day. Thank you, Megan. You have a good one.</p>
+                <p>Thank you, Megan. You have a good day.</p>
               </div>
 
               <div class="t-footer">
@@ -106,34 +129,7 @@ import Base from '../../layouts/Base.astro';
         </div>
       </section>
 
-      <!-- ROW 2: WHAT IT DOESN'T DO  +  TYPICAL FIT -->
-      <section class="worker-section">
-        <div class="two-up">
-          <div>
-            <h2>What it doesn't do.</h2>
-            <p>
-              Anything that needs hands or a face. Walk-ins, signing for packages, in-person greetings
-              &mdash; that's still a human job, and we're upfront about it.
-            </p>
-            <p>
-              Some businesses split the role: front desk stays human for the physical part, while
-              phones, calendar, and email move to a Crystal receptionist.
-            </p>
-          </div>
-          <div class="fit-card">
-            <p class="fit-label">Typical fit</p>
-            <ul class="fit-list">
-              <li>Small-to-mid-sized business, $1M&ndash;$20M revenue</li>
-              <li>Receptionist seat open 2+ weeks, or turning over regularly</li>
-              <li>Owner currently covers phones between meetings</li>
-              <li>Appointment-based business (medical, dental, trades, services)</li>
-              <li>Open to splitting role if walk-ins require in-person</li>
-            </ul>
-          </div>
-        </div>
-      </section>
-
-      <!-- ROW 3: WORKS WITH  |  MATH -->
+      <!-- ROW 2: WORKS WITH  |  MATH -->
       <section class="paired-section">
         <div class="paired-cols">
           <div class="pc-body">
@@ -169,21 +165,6 @@ import Base from '../../layouts/Base.astro';
             </p>
           </div>
         </div>
-      </section>
-
-      <!-- HONEST PART -->
-      <section class="worker-section">
-        <h2>The honest part.</h2>
-        <p>
-          Day one is rough, like any new hire. We tell you that up front. By day 30 it's outworking your
-          last three. Every correction makes it permanently smarter. Every night it reviews what it
-          learned and shows up the next morning a little better than it was. That's the trade: a rough
-          first week in exchange for a worker that compounds.
-        </p>
-        <p>
-          You're still in charge. There's a kill switch. If it's not working on day 28, we remove
-          ourselves from your tools the same day.
-        </p>
       </section>
 
       <!-- FAQ -->
@@ -305,6 +286,26 @@ import Base from '../../layouts/Base.astro';
     margin: 0 0 1rem;
     line-height: 1.2;
   }
+  .pc-body .sub-block {
+    margin-top: 2rem;
+    padding-top: 1.75rem;
+    border-top: 1px solid var(--rule);
+  }
+  .pc-body .sub-block h3 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin: 0 0 0.75rem;
+    color: var(--ink);
+    letter-spacing: -0.005em;
+  }
+  .pc-body .sub-block p {
+    margin: 0 0 0.8rem;
+    color: var(--ink-2);
+    font-size: 0.97rem;
+    line-height: 1.55;
+  }
+  .pc-body .sub-block p:last-child { margin-bottom: 0; }
+  .pc-body .fit-card { margin-top: 2rem; }
 
   /* Single-column section (used for "what it doesn't do" and honest part) */
   .worker-section {

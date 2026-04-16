@@ -45,6 +45,29 @@ import Base from '../../layouts/Base.astro';
               <li>Logs every action and every tool call. Fully auditable.</li>
               <li>Every correction sticks &mdash; the same ticket doesn't stump it twice.</li>
             </ul>
+
+            <div class="sub-block">
+              <h3>What it doesn't do.</h3>
+              <p>
+                Anything requiring on-site hands &mdash; hardware swaps, cable runs, physical presence.
+                Anything outside the scope you define at setup; the worker is scoped to respect the line.
+              </p>
+              <p>
+                Anything customer-facing before you're ready. Most L1 deployments start internal-only,
+                working tickets from your staff, not your end customers, until you're confident.
+              </p>
+            </div>
+
+            <div class="fit-card">
+              <p class="fit-label">Typical fit</p>
+              <ul class="fit-list">
+                <li>MSP with L2 getting paged for L1 at 11 PM</li>
+                <li>Internal IT team at 100+ person company</li>
+                <li>SLA breaches overnight or on weekends</li>
+                <li>L1 hire turnover inside 18 months is the norm</li>
+                <li>Open to narrow, scoped pilot before broader rollout</li>
+              </ul>
+            </div>
           </div>
 
           <div class="pc-body">
@@ -87,34 +110,7 @@ import Base from '../../layouts/Base.astro';
         </div>
       </section>
 
-      <!-- ROW 2: WHAT IT DOESN'T DO + TYPICAL FIT -->
-      <section class="worker-section">
-        <div class="two-up">
-          <div>
-            <h2>What it doesn't do.</h2>
-            <p>
-              Anything requiring on-site hands &mdash; hardware swaps, cable runs, physical presence.
-              Anything outside the scope you define at setup; the worker is scoped to respect the line.
-            </p>
-            <p>
-              Anything customer-facing before you're ready. Most L1 deployments start internal-only,
-              working tickets from your staff, not your end customers, until you're confident.
-            </p>
-          </div>
-          <div class="fit-card">
-            <p class="fit-label">Typical fit</p>
-            <ul class="fit-list">
-              <li>MSP with L2 getting paged for L1 at 11 PM</li>
-              <li>Internal IT team at 100+ person company</li>
-              <li>SLA breaches overnight or on weekends</li>
-              <li>L1 hire turnover inside 18 months is the norm</li>
-              <li>Open to narrow, scoped pilot before broader rollout</li>
-            </ul>
-          </div>
-        </div>
-      </section>
-
-      <!-- ROW 3: WORKS WITH  |  MATH -->
+      <!-- ROW 2: WORKS WITH  |  MATH -->
       <section class="paired-section">
         <div class="paired-cols">
           <div class="pc-body">
@@ -150,23 +146,6 @@ import Base from '../../layouts/Base.astro';
             </p>
           </div>
         </div>
-      </section>
-
-      <!-- HONEST PART -->
-      <section class="worker-section">
-        <h2>The honest part.</h2>
-        <p>
-          Day one is rough, like any new L1 hire &mdash; it doesn't know your tools or your end users
-          yet. Corrections go into the worker's knowledge base and stick; drift is a real problem and
-          we monitor for it. You keep a kill switch. Nothing customer-facing goes out without you being
-          able to reverse it.
-        </p>
-        <p>
-          On the technical side: it's a Claude-based worker scoped to tier-1. Defined tools, defined
-          escalation rules. Formal compliance certifications (SOC 2, ISO 27001) &mdash; we don't have
-          them yet. If you need one to buy, tell us which and we'll talk about whether it's realistic.
-          We don't pretend to have compliance we don't have.
-        </p>
       </section>
 
       <!-- FAQ -->
@@ -287,6 +266,26 @@ import Base from '../../layouts/Base.astro';
     margin: 0 0 1rem;
     line-height: 1.2;
   }
+  .pc-body .sub-block {
+    margin-top: 2rem;
+    padding-top: 1.75rem;
+    border-top: 1px solid var(--rule);
+  }
+  .pc-body .sub-block h3 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin: 0 0 0.75rem;
+    color: var(--ink);
+    letter-spacing: -0.005em;
+  }
+  .pc-body .sub-block p {
+    margin: 0 0 0.8rem;
+    color: var(--ink-2);
+    font-size: 0.97rem;
+    line-height: 1.55;
+  }
+  .pc-body .sub-block p:last-child { margin-bottom: 0; }
+  .pc-body .fit-card { margin-top: 2rem; }
 
   /* Single-column section */
   .worker-section {
