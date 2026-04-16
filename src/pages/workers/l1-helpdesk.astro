@@ -9,12 +9,15 @@ import Base from '../../layouts/Base.astro';
 >
   <article class="worker">
     <div class="frame">
+
+      <!-- HEAD -->
       <header class="worker-head">
         <p class="eyebrow">Available for hire</p>
         <h1>L1 Help Desk.</h1>
         <p class="lede">
-          A virtual employee for your ticket queue. Works overnights and weekends, handles password resets and common
-          L1 work, closes what it can close, and routes what it can't to L2 with clean notes.
+          A virtual employee for your ticket queue. Works overnights and weekends, handles password
+          resets and common L1 work, closes what it can close, and routes what it can't to L2 with
+          clean notes.
         </p>
         <div class="head-meta">
           <div><strong>~$2,500 / mo</strong><span>~50% of the human hire</span></div>
@@ -28,51 +31,122 @@ import Base from '../../layouts/Base.astro';
         </div>
       </header>
 
+      <!-- WHAT IT DOES -->
       <section class="worker-section" id="details">
         <h2>What a Crystal L1 worker does.</h2>
         <ul class="does">
           <li>Works the ticket queue overnight, weekends, and holidays.</li>
           <li>Handles password resets, MFA resets, access requests, and common L1 tickets.</li>
-          <li>Closes what it can close. Routes what it can't, with notes for the L2 picking it up.</li>
-          <li>Escalates out-of-scope tickets to a named engineer with context.</li>
+          <li>Closes what it can close. Routes what it can't with clean notes for the L2 picking it up.</li>
+          <li>Escalates out-of-scope tickets to a named engineer with full context.</li>
+          <li>Logs every action and every tool call. Fully auditable.</li>
           <li>Every correction sticks &mdash; the same ticket doesn't stump it twice.</li>
-          <li>0 SLA breaches overnight becomes a realistic goal, not a wishlist item.</li>
         </ul>
       </section>
 
+      <!-- EXAMPLE TICKET -->
+      <section class="transcript-section">
+        <div class="transcript-head">
+          <p class="section-label">Example ticket</p>
+          <h2>What a real L1 ticket looks like.</h2>
+          <p class="section-sub">Actual L1 pattern. Names fictional &mdash; your worker is trained on your specific procedures, PSA, and escalation tree.</p>
+        </div>
+
+        <div class="transcript">
+          <div class="t-meta">Ticket #4872 &middot; ConnectWise &middot; 03:14 AM</div>
+
+          <div class="ticket-msg from-user">
+            <span class="who">james.lin@acme.co</span>
+            <span class="when">03:14 AM</span>
+            <p><strong>VPN not connecting</strong></p>
+            <p>I'm locked out of the VPN and I need to get into the file server for an early meeting. Getting error "Authentication failed" on Cisco AnyConnect.</p>
+          </div>
+          <div class="ticket-msg from-worker">
+            <span class="who">Crystal &middot; L1</span>
+            <span class="when">03:15 AM</span>
+            <p>Hey James &mdash; looks like your VPN account got flagged after some failed login attempts yesterday. I've cleared the lock. Try the connection again and let me know.</p>
+          </div>
+          <div class="ticket-msg from-user">
+            <span class="who">james.lin@acme.co</span>
+            <span class="when">03:17 AM</span>
+            <p>Worked. Thanks.</p>
+          </div>
+          <div class="ticket-msg from-worker">
+            <span class="who">Crystal &middot; L1</span>
+            <span class="when">03:17 AM</span>
+            <p>Anytime. One note &mdash; you had three failed attempts from a different IP earlier tonight. I'm flagging this ticket for the daytime team to review for security.</p>
+          </div>
+
+          <div class="t-footer">
+            <span class="tf-tag">Resolved &mdash; 3 min</span>
+            <span class="tf-tag">AD account unlocked</span>
+            <span class="tf-tag">Flagged for security review</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- WHAT IT DOESN'T DO + FIT -->
       <section class="worker-section">
-        <h2>What it doesn't do.</h2>
-        <p>
-          Anything requiring on-site hands &mdash; hardware swaps, cable runs, physical presence. Anything outside
-          the scope you define at setup; we're upfront about the line and the worker is scoped to respect it.
-          Anything customer-facing before you're ready &mdash; most L1 deployments start internal-only, with tickets
-          from your staff, not your end customers, until you're confident.
+        <div class="two-up">
+          <div>
+            <h2>What it doesn't do.</h2>
+            <p>
+              Anything requiring on-site hands &mdash; hardware swaps, cable runs, physical presence.
+              Anything outside the scope you define at setup; the worker is scoped to respect the line.
+            </p>
+            <p>
+              Anything customer-facing before you're ready. Most L1 deployments start internal-only,
+              working tickets from your staff, not your end customers, until you're confident.
+            </p>
+          </div>
+          <div class="fit-card">
+            <p class="fit-label">Typical fit</p>
+            <ul class="fit-list">
+              <li>MSP with L2 getting paged for L1 at 11 PM</li>
+              <li>Internal IT team at 100+ person company</li>
+              <li>SLA breaches overnight or on weekends</li>
+              <li>L1 hire turnover inside 18 months is the norm</li>
+              <li>Open to narrow, scoped pilot before broader rollout</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- WORKS WITH -->
+      <section class="works-section">
+        <p class="section-label">Works with</p>
+        <h2>Your existing stack.</h2>
+        <div class="works-grid">
+          <div class="works-cat">
+            <span class="works-label">PSA / Ticketing</span>
+            <span class="works-items">ConnectWise &middot; Autotask &middot; Freshservice &middot; Halo (planned)</span>
+          </div>
+          <div class="works-cat">
+            <span class="works-label">RMM</span>
+            <span class="works-items">Kaseya &middot; NinjaRMM (planned) &middot; Datto</span>
+          </div>
+          <div class="works-cat">
+            <span class="works-label">Directory / SSO</span>
+            <span class="works-items">Entra ID &middot; Okta &middot; Google Workspace</span>
+          </div>
+          <div class="works-cat">
+            <span class="works-label">Comms</span>
+            <span class="works-items">Slack &middot; Teams &middot; Email</span>
+          </div>
+        </div>
+        <p class="works-note">
+          Don't see yours? Tell us on the working session. We'll build the connector or tell you it's not a fit.
         </p>
       </section>
 
-      <section class="worker-section">
-        <h2>For MSPs and internal IT.</h2>
-        <p>
-          If you're running an MSP or internal IT team and your L2 is getting paged for L1 tickets at 11 PM, this is
-          the shape of the fix. The worker closes the routine stuff, leaves a clean handoff on anything that needs
-          judgment, and never calls in sick the Monday after a long weekend.
-        </p>
-        <p>
-          On the technical side: it's a Claude-based worker scoped to tier-1. Defined tools, defined escalation rules.
-          Integrations with ConnectWise and Autotask today &mdash; Halo and NinjaRMM on the roadmap. If yours isn't on
-          the list, we build the connector or we don't take the deal. Formal compliance certifications
-          (SOC 2, ISO 27001) &mdash; we don't have them yet. If you need one to buy, tell us which and we'll talk about
-          whether it's realistic.
-        </p>
-      </section>
-
+      <!-- MATH -->
       <section class="worker-section">
         <h2>The math.</h2>
         <table class="math-table">
           <tbody>
             <tr><th>Market salary (loaded)</th><td>~$60,000 / yr</td></tr>
             <tr><th>Crystal L1 worker</th><td>~$2,500 / mo</td></tr>
-            <tr><th>Coverage</th><td>24 / 7 (including overnights & weekends)</td></tr>
+            <tr><th>Coverage</th><td>24 / 7 (including overnights &amp; weekends)</td></tr>
             <tr><th>Setup time</th><td>3&ndash;5 business days</td></tr>
             <tr><th>Free trial</th><td>28 days, no card</td></tr>
             <tr><th>Included</th><td>Worker, build-out, training, integrations, ongoing corrections, maintenance, updates.</td></tr>
@@ -81,15 +155,44 @@ import Base from '../../layouts/Base.astro';
         </table>
       </section>
 
+      <!-- HONEST PART -->
       <section class="worker-section">
         <h2>The honest part.</h2>
         <p>
-          Day one is rough, like any new L1 hire &mdash; it doesn't know your tools or your end users yet. Corrections
-          go into the worker's knowledge base and stick; drift is a real problem and we monitor for it. You keep a
-          kill switch. Nothing customer-facing goes out without you being able to reverse it.
+          Day one is rough, like any new L1 hire &mdash; it doesn't know your tools or your end users
+          yet. Corrections go into the worker's knowledge base and stick; drift is a real problem and
+          we monitor for it. You keep a kill switch. Nothing customer-facing goes out without you being
+          able to reverse it.
+        </p>
+        <p>
+          On the technical side: it's a Claude-based worker scoped to tier-1. Defined tools, defined
+          escalation rules. Formal compliance certifications (SOC 2, ISO 27001) &mdash; we don't have
+          them yet. If you need one to buy, tell us which and we'll talk about whether it's realistic.
+          We don't pretend to have compliance we don't have.
         </p>
       </section>
 
+      <!-- FAQ -->
+      <section class="faq-section">
+        <p class="section-label">Questions we get</p>
+        <h2>Real questions, honest answers.</h2>
+        <div class="faq">
+          <div class="faq-item">
+            <h3>What's your close rate?</h3>
+            <p>Depends on the scope you define at setup. A narrow L1 scope (password resets, access requests, common faults) closes 70&ndash;85% unassisted. Anything outside that scope routes to L2 with notes.</p>
+          </div>
+          <div class="faq-item">
+            <h3>What if it confidently answers wrong?</h3>
+            <p>Biggest risk in L1. We scope tightly at setup and monitor for confidence drift. Corrections go into the knowledge base and stick. Every action is logged &mdash; fully auditable.</p>
+          </div>
+          <div class="faq-item">
+            <h3>Can it page on-call for real incidents?</h3>
+            <p>Yes, with rules you define. Out-of-scope or high-severity tickets route directly to the named engineer, skipping the queue. The worker never sits on something it shouldn't.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA -->
       <div class="worker-cta">
         <h3>Hiring L1 help desk?</h3>
         <p>Book a 15-minute working session. We'll walk through your current queue and show you what one of ours would do with it.</p>
@@ -145,10 +248,27 @@ import Base from '../../layouts/Base.astro';
   }
   .head-ctas { display: flex; gap: 0.6rem; flex-wrap: wrap; }
 
+  .section-label {
+    display: inline-block;
+    font-size: 0.76rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin: 0 0 0.65rem;
+  }
+  .section-sub {
+    color: var(--ink-muted);
+    max-width: 52ch;
+    font-size: 0.95rem;
+    margin: 0 0 1.5rem;
+    line-height: 1.5;
+  }
+
   .worker-section {
-    padding: 2rem 0;
+    padding: 2.5rem 0;
     border-top: 1px solid var(--rule);
-    max-width: 56rem;
+    max-width: 60rem;
   }
   .worker-section h2 {
     font-size: clamp(1.4rem, 2.4vw, 1.8rem);
@@ -188,6 +308,182 @@ import Base from '../../layouts/Base.astro';
     margin-top: 0.65em;
     flex-shrink: 0;
   }
+
+  /* TRANSCRIPT / TICKET */
+  .transcript-section {
+    padding: 3rem 0;
+    border-top: 1px solid var(--rule);
+    background: linear-gradient(180deg, var(--paper-2) 0%, var(--paper) 100%);
+    margin: 0 calc(clamp(1.25rem, 4vw, 2.5rem) * -1);
+    padding-left: clamp(1.25rem, 4vw, 2.5rem);
+    padding-right: clamp(1.25rem, 4vw, 2.5rem);
+  }
+  .transcript-head { max-width: 60rem; margin-bottom: 2rem; }
+  .transcript-head h2 {
+    font-size: clamp(1.4rem, 2.4vw, 1.8rem);
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    margin: 0 0 0.5rem;
+  }
+  .transcript {
+    max-width: 46rem;
+    background: #fff;
+    border: 1px solid var(--rule);
+    border-radius: var(--radius);
+    padding: 1.5rem;
+  }
+  .t-meta {
+    font-family: var(--mono);
+    font-size: 0.78rem;
+    color: var(--ink-faint);
+    letter-spacing: 0.02em;
+    margin-bottom: 1rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px dashed var(--rule);
+  }
+  .ticket-msg {
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+    margin-bottom: 0.75rem;
+    border-left: 3px solid var(--rule-strong);
+    background: var(--paper-2);
+  }
+  .ticket-msg.from-worker {
+    background: var(--accent-wash);
+    border-left-color: var(--accent);
+  }
+  .ticket-msg .who {
+    display: inline-block;
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: var(--ink);
+    margin-right: 0.75rem;
+  }
+  .ticket-msg .when {
+    font-size: 0.72rem;
+    color: var(--ink-faint);
+    font-family: var(--mono);
+  }
+  .ticket-msg p {
+    margin: 0.4rem 0 0;
+    font-size: 0.93rem;
+    line-height: 1.5;
+    color: var(--ink-2);
+  }
+  .ticket-msg p strong { color: var(--ink); font-weight: 600; }
+  .t-footer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-top: 1rem;
+    padding-top: 0.9rem;
+    border-top: 1px dashed var(--rule);
+  }
+  .tf-tag {
+    font-size: 0.72rem;
+    padding: 0.22rem 0.55rem;
+    border-radius: 999px;
+    background: #e5f2ea;
+    color: var(--ok);
+    font-weight: 500;
+    letter-spacing: 0.02em;
+  }
+
+  /* TWO-UP */
+  .two-up {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    gap: 2rem;
+  }
+  @media (max-width: 760px) {
+    .two-up { grid-template-columns: 1fr; }
+  }
+  .fit-card {
+    background: var(--paper-2);
+    border: 1px solid var(--rule);
+    border-radius: var(--radius);
+    padding: 1.5rem 1.5rem 1.25rem;
+    align-self: start;
+  }
+  .fit-label {
+    display: inline-block;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin: 0 0 0.75rem;
+  }
+  .fit-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.55rem;
+    font-size: 0.92rem;
+    color: var(--ink-2);
+    line-height: 1.45;
+  }
+  .fit-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.55rem;
+  }
+  .fit-list li::before {
+    content: "✓";
+    color: var(--accent);
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+
+  /* WORKS WITH */
+  .works-section {
+    padding: 3rem 0;
+    border-top: 1px solid var(--rule);
+    max-width: 60rem;
+  }
+  .works-section h2 {
+    font-size: clamp(1.4rem, 2.4vw, 1.8rem);
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    margin: 0 0 1.5rem;
+  }
+  .works-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+  }
+  .works-cat {
+    padding: 1rem 1.25rem;
+    background: #fff;
+    border: 1px solid var(--rule);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+  }
+  .works-label {
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+  }
+  .works-items {
+    font-size: 0.92rem;
+    color: var(--ink);
+    line-height: 1.5;
+  }
+  .works-note {
+    margin: 0;
+    color: var(--ink-muted);
+    font-size: 0.9rem;
+    font-style: italic;
+  }
+
+  /* MATH TABLE */
   .math-table {
     width: 100%;
     max-width: 56rem;
@@ -207,6 +503,44 @@ import Base from '../../layouts/Base.astro';
   }
   .math-table td { color: var(--ink); }
 
+  /* FAQ */
+  .faq-section {
+    padding: 3rem 0 2rem;
+    border-top: 1px solid var(--rule);
+  }
+  .faq-section h2 {
+    font-size: clamp(1.4rem, 2.4vw, 1.8rem);
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    margin: 0 0 1.5rem;
+  }
+  .faq {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+    gap: 1rem;
+    max-width: 60rem;
+  }
+  .faq-item {
+    padding: 1.25rem 1.5rem;
+    background: #fff;
+    border: 1px solid var(--rule);
+    border-radius: var(--radius);
+  }
+  .faq-item h3 {
+    font-size: 1.02rem;
+    font-weight: 600;
+    margin: 0 0 0.5rem;
+    color: var(--ink);
+    line-height: 1.3;
+  }
+  .faq-item p {
+    margin: 0;
+    font-size: 0.95rem;
+    color: var(--ink-2);
+    line-height: 1.55;
+  }
+
+  /* CTA */
   .worker-cta {
     margin-top: 2.5rem;
     padding: 2rem 2.25rem;

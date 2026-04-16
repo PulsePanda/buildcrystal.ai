@@ -138,7 +138,7 @@ import CrystalMark from '../components/CrystalMark.astro';
 
       <div class="proof">
         <div class="quote-card">
-          <blockquote>One of the most expensive things a business can do is hiring.</blockquote>
+          <blockquote>One of the most expensive things a business can do is hire people.</blockquote>
           <p class="attrib">Posting, screening, interviewing, onboarding, ramp &mdash; weeks of lost time before anyone's useful. And that's when it works out.</p>
         </div>
 
@@ -151,8 +151,8 @@ import CrystalMark from '../components/CrystalMark.astro';
       </div>
 
       <div class="run-own">
-        <span class="mk" aria-hidden="true"><CrystalMark size={22} /></span>
-        <p><strong>Build Crystal runs its own.</strong> Our receptionist is a Crystal worker. So is our L1 help desk. If you want a live demo, you're already talking to one when you call.</p>
+        <span class="mk" aria-hidden="true"><CrystalMark size={24} /></span>
+        <p><strong>We use our own product.</strong> Our receptionist is a Crystal worker. So is our L1 help desk. If you want a live demo, you're already talking to one when you call.</p>
       </div>
     </div>
   </section>
@@ -259,8 +259,28 @@ import CrystalMark from '../components/CrystalMark.astro';
   /* ROLE CARDS */
   .roles {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(22rem, 1fr));
+    grid-template-columns: repeat(2, 1fr);
     gap: 1.25rem;
+  }
+  .role.teaser {
+    grid-column: 1 / -1;
+    flex-direction: row;
+    align-items: center;
+    gap: 1.5rem;
+  }
+  .role.teaser .role-top { flex: 0 0 auto; }
+  .role.teaser h3 { margin: 0; flex: 0 0 auto; white-space: nowrap; }
+  .role.teaser .role-for { flex: 1; margin: 0; }
+  .role.teaser .apply { width: auto; flex: 0 0 auto; margin: 0; }
+  @media (max-width: 720px) {
+    .roles { grid-template-columns: 1fr; }
+    .role.teaser {
+      flex-direction: column;
+      align-items: stretch;
+      gap: 1rem;
+    }
+    .role.teaser h3 { white-space: normal; }
+    .role.teaser .apply { width: 100%; }
   }
   .role {
     background: #fff;
@@ -448,7 +468,7 @@ import CrystalMark from '../components/CrystalMark.astro';
   /* PROOF */
   .proof {
     display: grid;
-    grid-template-columns: 1.3fr 1fr;
+    grid-template-columns: 1fr 1.4fr;
     gap: 1.5rem;
   }
   @media (max-width: 820px) {
@@ -522,7 +542,6 @@ import CrystalMark from '../components/CrystalMark.astro';
     display: flex;
     align-items: center;
     gap: 1rem;
-    flex-wrap: wrap;
   }
   .run-own .mk {
     color: var(--accent);
@@ -532,6 +551,7 @@ import CrystalMark from '../components/CrystalMark.astro';
   }
   .run-own p {
     margin: 0;
+    flex: 1;
     color: var(--ink-2);
     font-size: 0.98rem;
     line-height: 1.5;

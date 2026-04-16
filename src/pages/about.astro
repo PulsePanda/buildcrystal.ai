@@ -1,130 +1,455 @@
 ---
 import Base from '../layouts/Base.astro';
+import CrystalMark from '../components/CrystalMark.astro';
 ---
 
 <Base
   title="About — Build Crystal"
-  description="Build Crystal is a small shop building AI workers for specific job roles. Run by Austin VanAlstyne."
+  description="Build Crystal is a small shop building AI workers that actually work. Run by Austin VanAlstyne. We use our own product."
   active="about"
 >
-  <article class="about">
+
+  <!-- HERO -->
+  <section class="hero">
     <div class="frame">
-      <header class="about-head">
-        <p class="eyebrow">About</p>
-        <h1>A small shop building AI workers for the jobs you're hiring for.</h1>
-        <p class="lede">
-          Build Crystal makes virtual employees for specific roles &mdash; receptionists, L1 help desk, more on the way.
-          We build them, deploy them, and run them as a managed service. Not chatbots. Not tools to configure. Workers.
-        </p>
-      </header>
+      <p class="eyebrow">About Build Crystal</p>
+      <h1>We got tired of AI pitches that couldn't survive contact with a real job.</h1>
+      <p class="lede">
+        Everyone else is selling platforms, copilots, and dashboards. We build workers.
+        You hire one. We build it. We run it. One role at a time. Day one is rough. Day 30 it's genius.
+      </p>
+      <div class="hero-ctas">
+        <a href="/#roles" class="btn btn-primary">See who's available</a>
+        <a href="#contact" class="btn btn-secondary" data-hire data-role="general">Book a working session</a>
+      </div>
+    </div>
+  </section>
 
-      <section class="about-block">
-        <h2>Who we are</h2>
-        <p>
-          Build Crystal is run by Austin VanAlstyne &mdash; an engineer who got tired of watching AI pitches that couldn't
-          survive contact with a real job. The company was built to make one bet: that the right shape of AI is a worker
-          you hire, not a tool you configure. You hire a receptionist, we build one. You need an L1, we build one.
-          You run your business. We run the worker.
-        </p>
-      </section>
-
-      <section class="about-block">
-        <h2>What we're doing</h2>
-        <p>
-          Taking the roles every business needs &mdash; support, reception, intake &mdash; and turning them into virtual
-          employees you can deploy in days. Each worker is a managed service: you don't wrangle APIs or prompts.
-          We come out. We onboard it. We hang out while it gets better.
-        </p>
-      </section>
-
-      <section class="about-block">
-        <h2>Why it matters</h2>
-        <p>
-          Hiring is one of the most expensive things a business can do. Posting, screening, interviewing, onboarding,
-          ramp &mdash; weeks of lost time before anyone's useful. A help desk tech costs $60K. A receptionist costs $50K.
-          Our workers run at roughly half the cost, work 24/7, don't call in sick, and get measurably better every week.
-          Day one is rough. Day 30 it's genius.
-        </p>
-      </section>
-
-      <section class="about-block">
-        <h2>We run our own.</h2>
-        <p>
-          Build Crystal's receptionist is a Crystal worker. So is our L1 help desk. If you want a live demo, you're
-          already talking to one when you call. That's not a marketing flourish &mdash; it's a reliability test we fail or
-          pass in public, every day.
-        </p>
-      </section>
-
-      <div class="about-cta">
-        <h3>Hiring for a role we cover?</h3>
-        <div class="cta-row">
-          <a href="/#roles" class="btn btn-secondary">See who's available</a>
-          <a href="#contact" class="btn btn-primary" data-hire data-role="general">Book a working session</a>
+  <!-- WHY -->
+  <section class="band band-paper">
+    <div class="frame">
+      <div class="two-col">
+        <div class="col-head">
+          <p class="eyebrow-sm">Why this exists</p>
+          <h2>Hiring is broken. AI keeps pretending the answer is a dashboard.</h2>
+        </div>
+        <div class="col-body">
+          <p>
+            Small businesses lose weeks to hiring. Post the job. Screen forty resumes. Phone-screen the
+            ones that can write a sentence. Interview the short list. Pick one. Train them for three
+            months. Then watch half of them leave inside a year. Every week the seat sits open is a week
+            of missed calls and overworked staff covering for it.
+          </p>
+          <p>
+            Meanwhile, every AI company wants to sell you a platform to configure yourself. Prompt
+            templates. Workflow builders. "Just wire it up." That's not help. That's homework.
+          </p>
+          <p class="kicker">We wanted to sell help, not homework.</p>
         </div>
       </div>
     </div>
-  </article>
+  </section>
+
+  <!-- BIG PULL QUOTE -->
+  <section class="pull-band">
+    <div class="frame pull-frame">
+      <span class="pull-mark" aria-hidden="true"><CrystalMark size={28} /></span>
+      <blockquote>
+        Day one is rough. Day 30 it's genius. Every correction sticks, every night it reviews what it
+        learned, and it shows up the next morning a little better than it was.
+      </blockquote>
+      <p class="pull-attrib">Austin VanAlstyne &middot; Build Crystal</p>
+    </div>
+  </section>
+
+  <!-- WHO -->
+  <section class="band band-paper">
+    <div class="frame">
+      <div class="two-col">
+        <div class="col-head">
+          <p class="eyebrow-sm">Who we are</p>
+          <h2>A small shop run by one engineer.</h2>
+        </div>
+        <div class="col-body">
+          <p>
+            Build Crystal is Austin VanAlstyne. Same Austin who runs Umbrella Systems, an IT services
+            company that's been fixing small businesses' networks and laptops for years. He'd been
+            watching AI demos get polished for Twitter and then fall apart in a real office, and figured
+            someone was going to have to build the version that actually worked.
+          </p>
+          <p>
+            So he did &mdash; starting in his own shop, for his own seats, before selling it to anyone else.
+          </p>
+          <div class="inline-callout">
+            The receptionist you talk to when you call our office is a Crystal worker. So is the L1 desk
+            at Umbrella. If you want a demo, you're already in one.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT'S LIVE -->
+  <section class="band band-ink">
+    <div class="frame">
+      <p class="eyebrow-sm on-dark">What's shipping, right now</p>
+      <h2 class="on-dark">Two workers live. Three more in scoping.</h2>
+      <div class="live-grid">
+        <div class="live-card">
+          <div class="live-top">
+            <span class="live-tag live">Live</span>
+            <span class="live-where">Inside Build Crystal</span>
+          </div>
+          <h3>Receptionist</h3>
+          <p>
+            Answers calls, books and reschedules, takes messages, routes judgment calls. In use as the
+            front desk for Build Crystal. Available for customer deployments.
+          </p>
+          <a href="/workers/receptionist" class="live-link">Role detail &rarr;</a>
+        </div>
+        <div class="live-card">
+          <div class="live-top">
+            <span class="live-tag live">Live</span>
+            <span class="live-where">Inside Umbrella Systems</span>
+          </div>
+          <h3>L1 Help Desk</h3>
+          <p>
+            Works the ticket queue overnight and weekends &mdash; password resets, access requests, common
+            L1 work. In use at Umbrella Systems. Available for customer deployments.
+          </p>
+          <a href="/workers/l1-helpdesk" class="live-link">Role detail &rarr;</a>
+        </div>
+        <div class="live-card pending">
+          <div class="live-top">
+            <span class="live-tag pending">In scoping</span>
+            <span class="live-where">Next three</span>
+          </div>
+          <h3>Intake, bookkeeper, scheduler</h3>
+          <p>
+            Three more roles in design. Getting in early means shaping what the worker does from day one.
+            Tell us the seat you're trying to fill and we'll tell you if it's on the next cut.
+          </p>
+          <a href="#contact" class="live-link" data-hire data-role="other">Tell us about your seat &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW A SESSION GOES -->
+  <section class="band band-paper">
+    <div class="frame">
+      <div class="two-col">
+        <div class="col-head">
+          <p class="eyebrow-sm">How a working session actually goes</p>
+          <h2>15 minutes. No pitch deck.</h2>
+        </div>
+        <div class="col-body">
+          <p>
+            We don't do demos. We do working sessions. You tell us the seat you're trying to fill, the
+            tools you use, the pay range, and what's been driving you crazy about the role.
+          </p>
+          <p>
+            We tell you honestly whether we can cover it, how much it would run, and what the first 28
+            days would look like. If we can't cover it, we say so. If we can cover it but you shouldn't
+            buy it yet, we say that too. If we can cover it and you should, we set a start date for the
+            pilot.
+          </p>
+          <p class="kicker">No slide deck. No "intro to AI." Just the seat and the math.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT WE WON'T DO -->
+  <section class="band band-paper band-divider">
+    <div class="frame">
+      <p class="eyebrow-sm">Things we're not going to do</p>
+      <h2>What we won't do.</h2>
+      <ul class="wont-list">
+        <li>
+          <strong>Sell you a tool to configure yourself.</strong>
+          <span>We're a managed service. If you want a prompt builder, Zapier has one.</span>
+        </li>
+        <li>
+          <strong>Pretend setup is a click.</strong>
+          <span>Setup takes 3 to 5 days. We come out, we onboard the worker, we hang out while it ramps.</span>
+        </li>
+        <li>
+          <strong>Pretend day one is genius.</strong>
+          <span>Day one is rough. Same as any new hire. That's the honest part.</span>
+        </li>
+        <li>
+          <strong>Resell AI.</strong>
+          <span>You own your Anthropic account. You pay usage directly. Keeps us honest about efficiency.</span>
+        </li>
+        <li>
+          <strong>Sell a multi-agent platform before one worker is proven.</strong>
+          <span>One role. One worker. One customer at a time.</span>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- BIG CTA -->
+  <section class="cta-band">
+    <div class="frame cta-wrap">
+      <div>
+        <h2>Hiring for a role we cover?</h2>
+        <p>Book a 15-minute working session. We'll tell you honestly whether we're a fit.</p>
+      </div>
+      <a href="#contact" class="btn btn-primary big" data-hire data-role="general">Book a working session</a>
+    </div>
+  </section>
+
 </Base>
 
 <style>
-  .about { padding: clamp(3rem, 7vw, 5rem) 0 clamp(3rem, 6vw, 4rem); }
-  .about-head { max-width: 52rem; margin-bottom: clamp(2rem, 5vw, 3rem); }
+  /* HERO */
+  .hero { padding: clamp(3.5rem, 8vw, 6rem) 0 clamp(2.5rem, 6vw, 4rem); }
   .eyebrow {
-    font-size: 0.78rem;
+    display: inline-block;
+    font-size: 0.8rem;
     font-weight: 500;
     letter-spacing: 0.08em;
     text-transform: uppercase;
     color: var(--accent);
-    margin: 0 0 1rem;
+    margin: 0 0 1.25rem;
   }
-  .about-head h1 {
-    font-size: clamp(2rem, 4.2vw, 2.9rem);
-    line-height: 1.1;
-    letter-spacing: -0.02em;
+  .hero h1 {
+    font-size: clamp(2.2rem, 5.2vw, 3.8rem);
+    line-height: 1.05;
+    letter-spacing: -0.025em;
     font-weight: 700;
     margin: 0 0 1.25rem;
-    max-width: 22ch;
+    max-width: 24ch;
   }
-  .about-head .lede {
-    font-size: clamp(1.05rem, 1.6vw, 1.2rem);
+  .hero .lede {
+    font-size: clamp(1.05rem, 1.7vw, 1.25rem);
     color: var(--ink-muted);
-    max-width: 52ch;
-    margin: 0;
+    max-width: 56ch;
+    margin: 0 0 2rem;
     line-height: 1.5;
   }
-  .about-block {
-    padding: 1.75rem 0;
-    border-top: 1px solid var(--rule);
-    max-width: 56rem;
-  }
-  .about-block h2 {
-    font-size: clamp(1.3rem, 2.2vw, 1.6rem);
-    font-weight: 600;
-    letter-spacing: -0.01em;
+  .hero-ctas { display: flex; gap: 0.75rem; flex-wrap: wrap; }
+
+  /* Section shells */
+  .band { padding: clamp(3rem, 6vw, 5rem) 0; border-top: 1px solid var(--rule); }
+  .band-divider { border-top: 1px solid var(--rule); }
+  .band-paper { background: var(--paper); }
+  .band-ink { background: var(--ink); color: var(--paper); border-top: 0; }
+
+  .eyebrow-sm {
+    display: inline-block;
+    font-size: 0.76rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent);
     margin: 0 0 0.75rem;
   }
-  .about-block p {
+  .eyebrow-sm.on-dark { color: #ffb383; }
+
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: clamp(2rem, 5vw, 4rem);
+    align-items: start;
+  }
+  @media (max-width: 760px) {
+    .two-col { grid-template-columns: 1fr; gap: 1.25rem; }
+  }
+  .col-head h2 {
+    font-size: clamp(1.5rem, 2.8vw, 2rem);
+    line-height: 1.15;
+    letter-spacing: -0.015em;
+    margin: 0;
+    font-weight: 600;
+    max-width: 18ch;
+  }
+  .col-body p {
+    margin: 0 0 1.1rem;
+    color: var(--ink-2);
+    font-size: 1.02rem;
+    line-height: 1.6;
+    max-width: 62ch;
+  }
+  .col-body p:last-child { margin-bottom: 0; }
+  .col-body .kicker {
+    font-weight: 600;
+    color: var(--ink);
+    font-size: 1.1rem;
+    border-left: 3px solid var(--accent);
+    padding-left: 0.9rem;
+    margin-top: 1.25rem;
+  }
+
+  .inline-callout {
+    margin-top: 1.5rem;
+    padding: 1rem 1.25rem;
+    background: var(--accent-wash);
+    border-radius: 10px;
+    color: var(--ink-2);
+    font-size: 0.97rem;
+    line-height: 1.5;
+    max-width: 60ch;
+  }
+
+  /* PULL BAND */
+  .pull-band {
+    background: var(--paper-2);
+    padding: clamp(3rem, 6vw, 5rem) 0;
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+  }
+  .pull-frame {
+    text-align: center;
+    max-width: 48rem;
+    margin: 0 auto;
+  }
+  .pull-mark {
+    display: inline-flex;
+    color: var(--accent);
+    margin-bottom: 1rem;
+  }
+  .pull-band blockquote {
+    margin: 0;
+    font-size: clamp(1.35rem, 2.4vw, 1.9rem);
+    line-height: 1.3;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+    font-weight: 500;
+  }
+  .pull-attrib {
+    margin: 1.25rem 0 0;
+    font-size: 0.9rem;
+    color: var(--ink-muted);
+    letter-spacing: 0.04em;
+  }
+
+  /* DARK BAND (What's live) */
+  .band-ink h2 {
+    font-size: clamp(1.7rem, 3vw, 2.3rem);
+    letter-spacing: -0.015em;
+    margin: 0 0 2rem;
+    font-weight: 600;
+    max-width: 22ch;
+  }
+  .band-ink h2.on-dark { color: var(--paper); }
+  .live-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+    gap: 1rem;
+  }
+  .live-card {
+    background: #1d2028;
+    border: 1px solid #2a2e37;
+    border-radius: var(--radius);
+    padding: 1.5rem 1.5rem 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .live-card.pending { background: transparent; border-style: dashed; border-color: #3a3e48; }
+  .live-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+  }
+  .live-tag {
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 0.22rem 0.6rem;
+    border-radius: 999px;
+  }
+  .live-tag.live { background: rgba(74, 222, 128, 0.18); color: #86efac; }
+  .live-tag.pending { background: rgba(234, 90, 41, 0.22); color: #ffb383; }
+  .live-where {
+    font-size: 0.78rem;
+    color: #9aa0ad;
+    letter-spacing: 0.02em;
+  }
+  .live-card h3 {
+    margin: 0;
+    font-size: 1.3rem;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    color: var(--paper);
+  }
+  .live-card p {
+    margin: 0;
+    color: #c7c9cf;
+    font-size: 0.95rem;
+    line-height: 1.55;
+  }
+  .live-link {
+    margin-top: auto;
+    color: #ffb383;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: color 120ms ease;
+  }
+  .live-link:hover { color: #ffd4b8; }
+
+  /* WONT LIST */
+  .band-paper.band-divider h2 {
+    font-size: clamp(1.5rem, 2.8vw, 2rem);
+    letter-spacing: -0.015em;
+    margin: 0 0 2rem;
+    font-weight: 600;
+  }
+  .wont-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+    gap: 0.75rem;
+  }
+  .wont-list li {
+    padding: 1.1rem 1.25rem;
+    background: #fff;
+    border: 1px solid var(--rule);
+    border-left: 3px solid var(--ink);
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+  }
+  .wont-list li strong {
+    font-size: 0.98rem;
+    color: var(--ink);
+    font-weight: 600;
+  }
+  .wont-list li span {
+    font-size: 0.92rem;
+    color: var(--ink-muted);
+    line-height: 1.5;
+  }
+
+  /* CTA BAND */
+  .cta-band { padding: clamp(3rem, 6vw, 4.5rem) 0; background: var(--accent-wash); }
+  .cta-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+  .cta-band h2 {
+    font-size: clamp(1.5rem, 2.6vw, 2rem);
+    margin: 0 0 0.4rem;
+    letter-spacing: -0.015em;
+    font-weight: 600;
+  }
+  .cta-band p {
     margin: 0;
     color: var(--ink-2);
     font-size: 1.02rem;
-    max-width: 62ch;
-    line-height: 1.6;
+    max-width: 50ch;
   }
-  .about-cta {
-    margin-top: 2.5rem;
-    padding: 2rem 2.25rem;
-    background: var(--accent-wash);
-    border-radius: var(--radius);
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    max-width: 56rem;
-  }
-  .about-cta h3 {
-    margin: 0;
-    font-size: 1.25rem;
-    font-weight: 600;
-  }
-  .cta-row { display: flex; gap: 0.6rem; flex-wrap: wrap; }
+  .btn.big { padding: 1rem 1.5rem; font-size: 1rem; }
 </style>

@@ -9,12 +9,15 @@ import Base from '../../layouts/Base.astro';
 >
   <article class="worker">
     <div class="frame">
+
+      <!-- HEAD -->
       <header class="worker-head">
         <p class="eyebrow">Available for hire</p>
         <h1>Receptionist.</h1>
         <p class="lede">
-          A virtual employee for your front desk. Answers every call in under a ring, books and reschedules against
-          your existing calendar, logs every interaction, and escalates judgment calls to you.
+          A virtual employee for your front desk. Answers every call in under a ring, books and
+          reschedules against your existing calendar, logs every interaction, and escalates judgment
+          calls to you.
         </p>
         <div class="head-meta">
           <div><strong>~$2,100 / mo</strong><span>~50% of the human hire</span></div>
@@ -28,27 +31,134 @@ import Base from '../../layouts/Base.astro';
         </div>
       </header>
 
+      <!-- WHAT IT DOES -->
       <section class="worker-section" id="details">
         <h2>What a Crystal receptionist does.</h2>
         <ul class="does">
-          <li>Answers every call in under a ring &mdash; identifies, captures intent, routes or books.</li>
+          <li>Answers every call in under a ring &mdash; identifies the caller, captures intent, routes or books.</li>
           <li>Books and reschedules appointments against your existing calendar.</li>
-          <li>Logs every interaction and follows up the next morning.</li>
+          <li>Logs every interaction. Follows up with no-shows the next morning.</li>
           <li>Escalates judgment calls to the owner with a one-line summary.</li>
           <li>Works nights, weekends, holidays. Doesn't take lunch.</li>
           <li>Every correction sticks &mdash; the same mistake doesn't happen twice.</li>
         </ul>
       </section>
 
+      <!-- EXAMPLE INTERACTION -->
+      <section class="transcript-section">
+        <div class="transcript-head">
+          <p class="section-label">Example call</p>
+          <h2>What a real call sounds like.</h2>
+          <p class="section-sub">Realistic interaction pattern. Names and business fictional &mdash; your worker is trained on your specific calendar, schedule, and voice.</p>
+        </div>
+
+        <div class="transcript">
+          <div class="t-meta">11:47 AM &middot; Inbound &middot; Vet office</div>
+
+          <div class="bubble caller">
+            <span class="who">Caller</span>
+            <p>Hi &mdash; I'm trying to get an appointment for my dog. He's been scratching his ears for about a week.</p>
+          </div>
+          <div class="bubble worker">
+            <span class="who">Crystal</span>
+            <p>Sure thing. What's his name?</p>
+          </div>
+          <div class="bubble caller">
+            <span class="who">Caller</span>
+            <p>Rocky. He's a golden retriever.</p>
+          </div>
+          <div class="bubble worker">
+            <span class="who">Crystal</span>
+            <p>Got it. We've got an opening tomorrow at 2:30 or Thursday at 10. Which one works better?</p>
+          </div>
+          <div class="bubble caller">
+            <span class="who">Caller</span>
+            <p>Thursday at 10 would be great.</p>
+          </div>
+          <div class="bubble worker">
+            <span class="who">Crystal</span>
+            <p>You got it. Can I grab your name and a callback number?</p>
+          </div>
+          <div class="bubble caller">
+            <span class="who">Caller</span>
+            <p>Megan Bryant. 555-0134.</p>
+          </div>
+          <div class="bubble worker">
+            <span class="who">Crystal</span>
+            <p>Perfect. Booked &mdash; Rocky with Dr. Hale, Thursday at 10 AM. We'll text you a reminder the night before. Anything else?</p>
+          </div>
+          <div class="bubble caller">
+            <span class="who">Caller</span>
+            <p>No, that's it. Thanks.</p>
+          </div>
+          <div class="bubble worker">
+            <span class="who">Crystal</span>
+            <p>Thanks, Megan. Have a good one.</p>
+          </div>
+
+          <div class="t-footer">
+            <span class="tf-tag">Appointment booked</span>
+            <span class="tf-tag">Confirmation SMS queued</span>
+            <span class="tf-tag">Logged to CRM</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- WHAT IT DOESN'T DO + FIT -->
       <section class="worker-section">
-        <h2>What it doesn't do.</h2>
-        <p>
-          Anything that needs hands or a face. Walk-ins, signing for packages, in-person greetings &mdash; that's still
-          a human job, and we're upfront about it. Some businesses split the role: front desk stays human for the
-          physical part, while phones, calendar, and email move to a Crystal receptionist.
+        <div class="two-up">
+          <div>
+            <h2>What it doesn't do.</h2>
+            <p>
+              Anything that needs hands or a face. Walk-ins, signing for packages, in-person greetings
+              &mdash; that's still a human job, and we're upfront about it.
+            </p>
+            <p>
+              Some businesses split the role: front desk stays human for the physical part, while
+              phones, calendar, and email move to a Crystal receptionist.
+            </p>
+          </div>
+          <div class="fit-card">
+            <p class="fit-label">Typical fit</p>
+            <ul class="fit-list">
+              <li>Small-to-mid-sized business, $1M&ndash;$20M revenue</li>
+              <li>Receptionist seat open 2+ weeks, or turning over regularly</li>
+              <li>Owner currently covers phones between meetings</li>
+              <li>Appointment-based business (medical, dental, trades, services)</li>
+              <li>Open to splitting role if walk-ins require in-person</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- WORKS WITH -->
+      <section class="works-section">
+        <p class="section-label">Works with</p>
+        <h2>Your existing tools.</h2>
+        <div class="works-grid">
+          <div class="works-cat">
+            <span class="works-label">Phones</span>
+            <span class="works-items">RingCentral &middot; Twilio &middot; Google Voice &middot; 8x8</span>
+          </div>
+          <div class="works-cat">
+            <span class="works-label">Calendars</span>
+            <span class="works-items">Google Calendar &middot; Microsoft 365 &middot; Acuity &middot; Calendly</span>
+          </div>
+          <div class="works-cat">
+            <span class="works-label">Messaging</span>
+            <span class="works-items">Slack &middot; Teams &middot; SMS</span>
+          </div>
+          <div class="works-cat">
+            <span class="works-label">Email</span>
+            <span class="works-items">Gmail &middot; Outlook &middot; IMAP</span>
+          </div>
+        </div>
+        <p class="works-note">
+          Don't see yours? Tell us on the working session. We'll build the connector or tell you it's not a fit.
         </p>
       </section>
 
+      <!-- MATH -->
       <section class="worker-section">
         <h2>The math.</h2>
         <table class="math-table">
@@ -64,20 +174,42 @@ import Base from '../../layouts/Base.astro';
         </table>
       </section>
 
+      <!-- HONEST PART -->
       <section class="worker-section">
         <h2>The honest part.</h2>
         <p>
-          Day one is rough, like any new hire. We tell you that up front. By day 30 it's outworking your last three.
-          Every correction makes it permanently smarter. Every night it reviews what it learned and shows up the next
-          morning a little better than it was. That's the trade: a rough first week in exchange for a worker that
-          compounds.
+          Day one is rough, like any new hire. We tell you that up front. By day 30 it's outworking your
+          last three. Every correction makes it permanently smarter. Every night it reviews what it
+          learned and shows up the next morning a little better than it was. That's the trade: a rough
+          first week in exchange for a worker that compounds.
         </p>
         <p>
-          You're still in charge. There's a kill switch. If it's not working on day 28, we remove ourselves from your
-          tools the same day.
+          You're still in charge. There's a kill switch. If it's not working on day 28, we remove
+          ourselves from your tools the same day.
         </p>
       </section>
 
+      <!-- FAQ -->
+      <section class="faq-section">
+        <p class="section-label">Questions we get</p>
+        <h2>Real questions, honest answers.</h2>
+        <div class="faq">
+          <div class="faq-item">
+            <h3>What if the caller wants something the worker can't do?</h3>
+            <p>It takes a message and pings you. Short summary, caller name, callback number. If you set up escalation rules for specific topics &mdash; refunds, billing disputes, emergencies &mdash; those route directly to the right person.</p>
+          </div>
+          <div class="faq-item">
+            <h3>Does it sound like a robot?</h3>
+            <p>Less than you'd expect. It's warm, it's efficient, it uses contractions, it doesn't pretend to be human. If a caller asks whether they're talking to a person, it says no.</p>
+          </div>
+          <div class="faq-item">
+            <h3>What happens the first time it screws up?</h3>
+            <p>You correct it. The correction goes into the worker's knowledge base. The same mistake doesn't happen twice. The worker you have on day 30 is measurably different from the worker you had on day 1.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA -->
       <div class="worker-cta">
         <h3>Hiring a receptionist?</h3>
         <p>Book a 15-minute working session. We'll show you what one of ours would do in your shop.</p>
@@ -133,10 +265,27 @@ import Base from '../../layouts/Base.astro';
   }
   .head-ctas { display: flex; gap: 0.6rem; flex-wrap: wrap; }
 
+  .section-label {
+    display: inline-block;
+    font-size: 0.76rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin: 0 0 0.65rem;
+  }
+  .section-sub {
+    color: var(--ink-muted);
+    max-width: 52ch;
+    font-size: 0.95rem;
+    margin: 0 0 1.5rem;
+    line-height: 1.5;
+  }
+
   .worker-section {
-    padding: 2rem 0;
+    padding: 2.5rem 0;
     border-top: 1px solid var(--rule);
-    max-width: 56rem;
+    max-width: 60rem;
   }
   .worker-section h2 {
     font-size: clamp(1.4rem, 2.4vw, 1.8rem);
@@ -176,6 +325,177 @@ import Base from '../../layouts/Base.astro';
     margin-top: 0.65em;
     flex-shrink: 0;
   }
+
+  /* TRANSCRIPT */
+  .transcript-section {
+    padding: 3rem 0;
+    border-top: 1px solid var(--rule);
+    background: linear-gradient(180deg, var(--paper-2) 0%, var(--paper) 100%);
+    margin: 0 calc(clamp(1.25rem, 4vw, 2.5rem) * -1);
+    padding-left: clamp(1.25rem, 4vw, 2.5rem);
+    padding-right: clamp(1.25rem, 4vw, 2.5rem);
+  }
+  .transcript-head { max-width: 60rem; margin-bottom: 2rem; }
+  .transcript-head h2 {
+    font-size: clamp(1.4rem, 2.4vw, 1.8rem);
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    margin: 0 0 0.5rem;
+  }
+  .transcript {
+    max-width: 40rem;
+    background: #fff;
+    border: 1px solid var(--rule);
+    border-radius: var(--radius);
+    padding: 1.5rem;
+  }
+  .t-meta {
+    font-family: var(--mono);
+    font-size: 0.78rem;
+    color: var(--ink-faint);
+    letter-spacing: 0.02em;
+    margin-bottom: 1rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px dashed var(--rule);
+  }
+  .bubble {
+    padding: 0.65rem 0.95rem;
+    border-radius: 10px;
+    margin-bottom: 0.5rem;
+    max-width: 85%;
+  }
+  .bubble p { margin: 0; font-size: 0.95rem; line-height: 1.45; color: var(--ink); }
+  .bubble .who {
+    display: block;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    margin-bottom: 0.15rem;
+  }
+  .bubble.caller {
+    background: var(--paper-2);
+    margin-right: auto;
+  }
+  .bubble.caller .who { color: var(--ink-muted); }
+  .bubble.worker {
+    background: var(--accent-wash);
+    margin-left: auto;
+  }
+  .bubble.worker .who { color: var(--accent); }
+  .t-footer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-top: 1rem;
+    padding-top: 0.9rem;
+    border-top: 1px dashed var(--rule);
+  }
+  .tf-tag {
+    font-size: 0.72rem;
+    padding: 0.22rem 0.55rem;
+    border-radius: 999px;
+    background: #e5f2ea;
+    color: var(--ok);
+    font-weight: 500;
+    letter-spacing: 0.02em;
+  }
+
+  /* TWO-UP (doesn't-do + fit) */
+  .two-up {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    gap: 2rem;
+  }
+  @media (max-width: 760px) {
+    .two-up { grid-template-columns: 1fr; }
+  }
+  .fit-card {
+    background: var(--paper-2);
+    border: 1px solid var(--rule);
+    border-radius: var(--radius);
+    padding: 1.5rem 1.5rem 1.25rem;
+    align-self: start;
+  }
+  .fit-label {
+    display: inline-block;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin: 0 0 0.75rem;
+  }
+  .fit-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.55rem;
+    font-size: 0.92rem;
+    color: var(--ink-2);
+    line-height: 1.45;
+  }
+  .fit-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.55rem;
+  }
+  .fit-list li::before {
+    content: "✓";
+    color: var(--accent);
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+
+  /* WORKS WITH */
+  .works-section {
+    padding: 3rem 0;
+    border-top: 1px solid var(--rule);
+    max-width: 60rem;
+  }
+  .works-section h2 {
+    font-size: clamp(1.4rem, 2.4vw, 1.8rem);
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    margin: 0 0 1.5rem;
+  }
+  .works-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+  }
+  .works-cat {
+    padding: 1rem 1.25rem;
+    background: #fff;
+    border: 1px solid var(--rule);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+  }
+  .works-label {
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+  }
+  .works-items {
+    font-size: 0.92rem;
+    color: var(--ink);
+    line-height: 1.5;
+  }
+  .works-note {
+    margin: 0;
+    color: var(--ink-muted);
+    font-size: 0.9rem;
+    font-style: italic;
+  }
+
+  /* MATH TABLE */
   .math-table {
     width: 100%;
     max-width: 56rem;
@@ -195,6 +515,44 @@ import Base from '../../layouts/Base.astro';
   }
   .math-table td { color: var(--ink); }
 
+  /* FAQ */
+  .faq-section {
+    padding: 3rem 0 2rem;
+    border-top: 1px solid var(--rule);
+  }
+  .faq-section h2 {
+    font-size: clamp(1.4rem, 2.4vw, 1.8rem);
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    margin: 0 0 1.5rem;
+  }
+  .faq {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+    gap: 1rem;
+    max-width: 60rem;
+  }
+  .faq-item {
+    padding: 1.25rem 1.5rem;
+    background: #fff;
+    border: 1px solid var(--rule);
+    border-radius: var(--radius);
+  }
+  .faq-item h3 {
+    font-size: 1.02rem;
+    font-weight: 600;
+    margin: 0 0 0.5rem;
+    color: var(--ink);
+    line-height: 1.3;
+  }
+  .faq-item p {
+    margin: 0;
+    font-size: 0.95rem;
+    color: var(--ink-2);
+    line-height: 1.55;
+  }
+
+  /* CTA */
   .worker-cta {
     margin-top: 2.5rem;
     padding: 2rem 2.25rem;
