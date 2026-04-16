@@ -1,11 +1,63 @@
 ---
 import Base from '../../layouts/Base.astro';
+
+const productSchema = {
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "name": "Crystal Receptionist",
+  "description": "A virtual AI receptionist for small businesses. Answers every call in under a ring, books and reschedules appointments, logs every interaction, and escalates judgment calls. Working 24/7.",
+  "brand": {
+    "@type": "Brand",
+    "name": "Build Crystal"
+  },
+  "offers": {
+    "@type": "Offer",
+    "priceCurrency": "USD",
+    "price": "2100",
+    "unitText": "month",
+    "availability": "https://schema.org/InStock"
+  }
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What if the caller wants something the worker can't do?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It takes a message and pings you. Short summary, caller name, callback number. If you set up escalation rules for specific topics — refunds, billing disputes, emergencies — those route directly to the right person."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does it sound like a robot?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Less than you'd expect. It's warm, it's efficient, it uses contractions, it doesn't pretend to be human. If a caller asks whether they're talking to a person, it says no."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What happens the first time it screws up?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "You correct it. The correction goes into the worker's knowledge base. The same mistake doesn't happen twice. The worker you have on day 30 is measurably different from the worker you had on day 1."
+      }
+    }
+  ]
+};
 ---
 
 <Base
-  title="Receptionist — Build Crystal"
-  description="A Crystal receptionist answers every call in under a ring, books and reschedules, and never calls in sick. ~$2,100/mo, ~50% of a human hire, ready in 3-5 days. First 28 days free."
+  title="AI Receptionist for Small Business | Build Crystal"
+  description="Hire a virtual AI receptionist that answers every call, books appointments, and works 24/7. ~$2,100/mo — about half the cost of a human hire. 28-day free pilot, no card required."
+  ogTitle="AI Receptionist for Small Business | Build Crystal"
+  ogDescription="Virtual receptionist that answers every call in under a ring, books appointments, and never calls in sick. ~$2,100/mo. 28-day free pilot."
   active="workers"
+  jsonLd={[productSchema, faqSchema]}
 >
   <article class="worker">
     <div class="frame">

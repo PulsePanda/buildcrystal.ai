@@ -1,11 +1,63 @@
 ---
 import Base from '../../layouts/Base.astro';
+
+const productSchema = {
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "name": "Crystal L1 Help Desk",
+  "description": "A virtual AI L1 help desk worker for MSPs and internal IT teams. Works the ticket queue overnight, weekends, and holidays — password resets, access requests, common L1 tickets. Routes what it can't close with clean notes for L2.",
+  "brand": {
+    "@type": "Brand",
+    "name": "Build Crystal"
+  },
+  "offers": {
+    "@type": "Offer",
+    "priceCurrency": "USD",
+    "price": "2500",
+    "unitText": "month",
+    "availability": "https://schema.org/InStock"
+  }
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What's your close rate?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Depends on the scope you define at setup. A narrow L1 scope (password resets, access requests, common faults) closes 70–85% unassisted. Anything outside that scope routes to L2 with notes."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What if it confidently answers wrong?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Biggest risk in L1. We scope tightly at setup and monitor for confidence drift. Corrections go into the knowledge base and stick. Every action is logged — fully auditable."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can it page on-call for real incidents?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, with rules you define. Out-of-scope or high-severity tickets route directly to the named engineer, skipping the queue. The worker never sits on something it shouldn't."
+      }
+    }
+  ]
+};
 ---
 
 <Base
-  title="L1 Help Desk — Build Crystal"
-  description="A Crystal L1 help desk worker clears the ticket queue overnight, handles password resets and common L1 tickets, and escalates what it can't close. ~$2,500/mo. Ready in 3-5 days."
+  title="AI L1 Help Desk for MSPs and IT Teams | Build Crystal"
+  description="Hire a virtual AI L1 help desk worker that clears your ticket queue overnight and on weekends. Password resets, access requests, common L1 work. ~$2,500/mo. 28-day free pilot."
+  ogTitle="AI L1 Help Desk for MSPs | Build Crystal"
+  ogDescription="Virtual L1 help desk that works overnight and weekends. Closes 70–85% of tickets unassisted. ~$2,500/mo. 28-day free pilot, no card required."
   active="workers"
+  jsonLd={[productSchema, faqSchema]}
 >
   <article class="worker">
     <div class="frame">

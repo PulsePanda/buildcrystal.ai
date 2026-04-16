@@ -1,14 +1,23 @@
 ---
 import Base from '../layouts/Base.astro';
 import CrystalMark from '../components/CrystalMark.astro';
+
+const websiteSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Build Crystal",
+  "url": "https://buildcrystal.ai",
+  "description": "Build Crystal builds AI workers for specific job roles — receptionists, L1 help desk, and more. Half the cost of a human hire, working 24/7, ready in days."
+};
 ---
 
 <Base
-  title="Build Crystal — Hire AI workers that grow with you."
-  description="Build Crystal builds AI workers for specific roles — receptionists, L1 help desk, more on the way. Half the cost. Working 24/7. Ready in days. First 28 days free."
-  ogTitle="Build Crystal — Hire AI workers that grow with you."
-  ogDescription="AI workers for the jobs you're hiring for. Half the cost. Ready in days."
+  title="Hire AI Workers for Your Business | Build Crystal"
+  description="Build Crystal builds AI workers for specific job roles — receptionists, L1 help desk, and more. Half the cost of a human hire. Working 24/7. Ready in days. First 28 days free."
+  ogTitle="Hire AI Workers for Your Business | Build Crystal"
+  ogDescription="Virtual employees for the seats you're hiring for. Half the cost. 24/7. Ready in 3-5 days. First 28 days free."
   active="home"
+  jsonLd={websiteSchema}
 >
 
   <!-- HERO -->

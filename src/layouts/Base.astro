@@ -10,6 +10,7 @@ interface Props {
   active?: 'home' | 'workers' | 'about';
   ogTitle?: string;
   ogDescription?: string;
+  jsonLd?: object | object[];
 }
 
 const {
@@ -18,7 +19,28 @@ const {
   active,
   ogTitle,
   ogDescription,
+  jsonLd,
 } = Astro.props;
+
+const siteUrl = 'https://buildcrystal.ai';
+const canonicalUrl = `${siteUrl}${Astro.url.pathname === '/' ? '' : Astro.url.pathname}`;
+
+const ogImageUrl = `${siteUrl}/favicon.svg`;
+
+const organizationSchema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Build Crystal",
+  "url": siteUrl,
+  "logo": ogImageUrl,
+  "description": "Build Crystal builds purpose-built AI workers for specific job roles — receptionists, L1 help desk, and more. Half the cost of a human hire, working 24/7.",
+  "founder": {
+    "@type": "Person",
+    "name": "Austin VanAlstyne"
+  }
+};
+
+const schemas = [organizationSchema, ...(jsonLd ? (Array.isArray(jsonLd) ? jsonLd : [jsonLd]) : [])];
 ---
 
 <!doctype html>
@@ -28,10 +50,30 @@ const {
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>{title}</title>
   <meta name="description" content={description} />
+  <link rel="canonical" href={canonicalUrl} />
+
+  <!-- Open Graph -->
   <meta property="og:title" content={ogTitle ?? title} />
   <meta property="og:description" content={ogDescription ?? description} />
   <meta property="og:type" content="website" />
+  <meta property="og:url" content={canonicalUrl} />
+  <meta property="og:site_name" content="Build Crystal" />
+  <meta property="og:image" content={ogImageUrl} />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content={ogTitle ?? title} />
+  <meta name="twitter:description" content={ogDescription ?? description} />
+  <meta name="twitter:image" content={ogImageUrl} />
+
+  <!-- Icons -->
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="apple-touch-icon" href="/favicon.svg" />
+
+  <!-- Structured Data -->
+  {schemas.map(schema => (
+    <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+  ))}
 </head>
 <body>
   <Nav active={active} />
