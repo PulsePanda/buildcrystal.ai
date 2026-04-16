@@ -32,7 +32,7 @@
         <select name="role" required>
           <option value="">Select a role</option>
           <option value="receptionist">Receptionist</option>
-          <option value="l1-helpdesk">L1 Help Desk</option>
+          <option value="support">Support Rep</option>
           <option value="other">Something else</option>
           <option value="general">General inquiry</option>
         </select>
@@ -66,15 +66,15 @@
     const bodyEl = dialog.querySelector('.contact-body') as HTMLElement;
     const successEl = dialog.querySelector('.contact-success') as HTMLElement;
 
-    type PresetKey = 'receptionist' | 'l1-helpdesk' | 'other' | 'general';
+    type PresetKey = 'receptionist' | 'support' | 'other' | 'general';
     const presets: Record<PresetKey, { h: string; s: string }> = {
       'receptionist': {
         h: 'Hire a receptionist',
         s: "Tell us about the seat. We'll reply within one business day to schedule a 15-minute working session."
       },
-      'l1-helpdesk': {
-        h: 'Hire an L1 help desk worker',
-        s: "Tell us about your queue. We'll reply within one business day to schedule a 15-minute working session."
+      'support': {
+        h: 'Hire a support rep',
+        s: "Tell us about your inbox or queue. We'll reply within one business day to schedule a 15-minute working session."
       },
       'other': {
         h: 'Tell us about your seat',

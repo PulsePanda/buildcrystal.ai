@@ -4,8 +4,8 @@ import Base from '../../layouts/Base.astro';
 const productSchema = {
   "@context": "https://schema.org",
   "@type": "Product",
-  "name": "Crystal L1 Help Desk",
-  "description": "A virtual AI L1 help desk worker for MSPs and internal IT teams. Works the ticket queue overnight, weekends, and holidays — password resets, access requests, common L1 tickets. Routes what it can't close with clean notes for L2.",
+  "name": "Crystal Support Rep",
+  "description": "A virtual AI support rep for small and mid-sized businesses. Works the support inbox, ticket queue, and live chat — handles routine questions, resolves what it can, routes judgment calls to a named human. Works 24/7.",
   "brand": {
     "@type": "Brand",
     "name": "Build Crystal"
@@ -13,7 +13,7 @@ const productSchema = {
   "offers": {
     "@type": "Offer",
     "priceCurrency": "USD",
-    "price": "2500",
+    "price": "2000",
     "unitText": "month",
     "availability": "https://schema.org/InStock"
   }
@@ -25,26 +25,26 @@ const faqSchema = {
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "What's your close rate?",
+      "name": "What percentage of tickets does it close on its own?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Depends on the scope you define at setup. A narrow L1 scope (password resets, access requests, common faults) closes 70–85% unassisted. Anything outside that scope routes to L2 with notes."
+        "text": "Depends on the scope you define at setup. A narrow scope (FAQs, order status, account questions, common how-tos) closes 70–85% unassisted. Anything outside that scope routes to a named human with full context and suggested next steps."
       }
     },
     {
       "@type": "Question",
-      "name": "What if it confidently answers wrong?",
+      "name": "What about refunds, escalations, and complaints?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Biggest risk in L1. We scope tightly at setup and monitor for confidence drift. Corrections go into the knowledge base and stick. Every action is logged — fully auditable."
+        "text": "Judgment calls route to a human immediately. The worker does not issue refunds, resolve complaints, or make customer-affecting decisions without you being able to reverse them. Kill switch is on every deployment. We set the routing rules together at setup."
       }
     },
     {
       "@type": "Question",
-      "name": "Can it page on-call for real incidents?",
+      "name": "Can it work across email, tickets, and live chat at the same time?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes, with rules you define. Out-of-scope or high-severity tickets route directly to the named engineer, skipping the queue. The worker never sits on something it shouldn't."
+        "text": "Yes. Same worker, same knowledge base, all your channels. If a customer starts in chat and follows up over email, the worker picks up the thread. One worker, one brain — not three disconnected bots."
       }
     }
   ]
@@ -52,10 +52,10 @@ const faqSchema = {
 ---
 
 <Base
-  title="AI L1 Help Desk for MSPs and IT Teams | Build Crystal"
-  description="Hire a virtual AI L1 help desk worker that clears your ticket queue overnight and on weekends. Password resets, access requests, common L1 work. ~$2,500/mo. 28-day free pilot."
-  ogTitle="AI L1 Help Desk for MSPs | Build Crystal"
-  ogDescription="Virtual L1 help desk that works overnight and weekends. Closes 70–85% of tickets unassisted. ~$2,500/mo. 28-day free pilot, no card required."
+  title="AI Support Rep for Small Business | Build Crystal"
+  description="Hire a virtual AI support rep that works your inbox, ticket queue, and live chat — 24/7. Handles routine questions, routes judgment calls to a human. ~$2,000/mo. 28-day free pilot."
+  ogTitle="AI Support Rep for Small Business | Build Crystal"
+  ogDescription="Virtual support rep that clears your inbox and queue around the clock. Closes 70–85% of routine tickets. ~$2,000/mo. 28-day free pilot, no card required."
   active="workers"
   jsonLd={[productSchema, faqSchema]}
 >
@@ -65,20 +65,20 @@ const faqSchema = {
       <!-- HEAD -->
       <header class="worker-head">
         <p class="eyebrow">Available for hire</p>
-        <h1>L1 Help Desk.</h1>
+        <h1>Support Rep.</h1>
         <p class="lede">
-          A virtual employee for your ticket queue. Works overnights and weekends, handles password
-          resets and common L1 work, closes what it can close, and routes what it can't to L2 with
-          clean notes.
+          A virtual employee for your support load. Works your inbox, ticket queue, and live chat,
+          answers the routine questions, resolves what it can, and routes anything that needs
+          judgment to a named human with clean notes.
         </p>
         <div class="head-meta">
-          <div><strong>~$2,500 / mo</strong><span>~50% of the human hire</span></div>
-          <div><strong>24 / 7</strong><span>queue coverage, no SLA gaps</span></div>
+          <div><strong>~$2,000 / mo</strong><span>~50% of the human hire</span></div>
+          <div><strong>24 / 7</strong><span>inbox + queue coverage</span></div>
           <div><strong>3&ndash;5 days</strong><span>from call to live</span></div>
           <div><strong>28 days</strong><span>free pilot</span></div>
         </div>
         <div class="head-ctas">
-          <a href="#contact" class="btn btn-primary" data-hire data-role="l1-helpdesk">Hire L1 help desk</a>
+          <a href="#contact" class="btn btn-primary" data-hire data-role="support">Hire a support rep</a>
           <a href="#details" class="btn btn-secondary">See what it does</a>
         </div>
       </header>
@@ -88,74 +88,78 @@ const faqSchema = {
         <div class="paired-cols">
           <div class="pc-body">
             <p class="section-label">What it does</p>
-            <h2>A Crystal L1 worker, day to day.</h2>
+            <h2>A Crystal support rep, day to day.</h2>
             <ul class="does">
-              <li>Works the ticket queue overnight, weekends, and holidays.</li>
-              <li>Handles password resets, MFA resets, access requests, and common L1 tickets.</li>
-              <li>Closes what it can close. Routes what it can't with clean notes for the L2 picking it up.</li>
-              <li>Escalates out-of-scope tickets to a named engineer with full context.</li>
-              <li>Logs every action and every tool call. Fully auditable.</li>
-              <li>Every correction sticks &mdash; the same ticket doesn't stump it twice.</li>
+              <li>Works your support inbox, ticket queue, and live chat &mdash; overnight, weekends, holidays.</li>
+              <li>Answers routine questions using your knowledge base, product docs, and past resolved tickets.</li>
+              <li>Handles order status, account questions, common how-tos, and FAQ-shaped inquiries on its own.</li>
+              <li>Routes judgment calls &mdash; refunds, complaints, escalations &mdash; to a named human with context.</li>
+              <li>Logs every action and tool call. Fully auditable.</li>
+              <li>Every correction sticks &mdash; the same question doesn't stump it twice.</li>
             </ul>
 
             <div class="sub-block">
               <h3>What it doesn't do.</h3>
               <p>
-                Anything requiring on-site hands &mdash; hardware swaps, cable runs, physical presence.
-                Anything outside the scope you define at setup; the worker is scoped to respect the line.
+                Anything that should take judgment, empathy, or policy discretion. Refunds,
+                complaint resolution, account suspensions, any customer-affecting decision &mdash;
+                those route to a human you name at setup. The worker handles volume; humans handle
+                judgment.
               </p>
               <p>
-                Anything customer-facing before you're ready. Most L1 deployments start internal-only,
-                working tickets from your staff, not your end customers, until you're confident.
+                Anything customer-facing before you're ready. Most deployments start internal-only
+                or draft-for-review, with you approving the first wave of replies, until you're
+                confident letting the worker send on its own.
               </p>
             </div>
 
             <div class="fit-card">
               <p class="fit-label">Typical fit</p>
               <ul class="fit-list">
-                <li>MSP with L2 getting paged for L1 at 11 PM</li>
-                <li>Internal IT team at 100+ person company</li>
-                <li>SLA breaches overnight or on weekends</li>
-                <li>L1 hire turnover inside 18 months is the norm</li>
-                <li>Open to narrow, scoped pilot before broader rollout</li>
+                <li>Small-to-mid business with a growing support load</li>
+                <li>Support inbox or ticket queue backed up regularly</li>
+                <li>Founder or ops lead covering tickets between real work</li>
+                <li>20%+ of volume is repeat "how do I" or "where's my" questions</li>
+                <li>Peak-hour or overnight coverage gaps</li>
               </ul>
             </div>
           </div>
 
           <div class="pc-body">
             <p class="section-label">Example ticket</p>
-            <h2>What a real L1 ticket looks like.</h2>
-            <p class="section-sub">Actual L1 pattern. Names fictional &mdash; your worker is trained on your PSA, procedures, and escalation tree.</p>
+            <h2>What a real support ticket looks like.</h2>
+            <p class="section-sub">Realistic pattern. Names fictional &mdash; your worker is trained on your product, policies, and escalation rules.</p>
 
             <div class="transcript">
-              <div class="t-meta">Ticket #4872 &middot; ConnectWise &middot; 03:14 AM</div>
+              <div class="t-meta">Ticket #8492 &middot; Help Scout &middot; 10:18 PM</div>
 
               <div class="ticket-msg from-user">
-                <span class="who">james.lin@acme.co</span>
-                <span class="when">03:14 AM</span>
-                <p><strong>VPN not connecting</strong></p>
-                <p>I'm locked out of the VPN and I need the file server for an early meeting. Getting "Authentication failed" on Cisco AnyConnect.</p>
+                <span class="who">jordan.reyes@email.com</span>
+                <span class="when">10:18 PM</span>
+                <p><strong>Where's my order?</strong></p>
+                <p>Hey, I ordered three pairs of pants last Thursday and the tracking hasn't moved in two days. What's going on?</p>
               </div>
               <div class="ticket-msg from-worker">
-                <span class="who">Crystal &middot; L1</span>
-                <span class="when">03:15 AM</span>
-                <p>Hey James &mdash; your VPN account got flagged after some failed login attempts yesterday. I've cleared the lock. Try again and let me know.</p>
+                <span class="who">Crystal &middot; Support</span>
+                <span class="when">10:19 PM</span>
+                <p>Hey Jordan &mdash; let me take a look. Order #8492 shipped Thursday night and is with FedEx. Tracking shows it's been sitting at their regional hub in Memphis since Friday because of weather delays there.</p>
+                <p>Most packages clear that hub in 24&ndash;48 hours. I've set up a status watch and I'll email you as soon as it moves. If it hasn't moved by Wednesday, I'll flag it to the team and we can talk about a replacement or a refund.</p>
               </div>
               <div class="ticket-msg from-user">
-                <span class="who">james.lin@acme.co</span>
-                <span class="when">03:17 AM</span>
-                <p>Worked. Thanks.</p>
+                <span class="who">jordan.reyes@email.com</span>
+                <span class="when">10:21 PM</span>
+                <p>Okay, that works. Thanks for digging in.</p>
               </div>
               <div class="ticket-msg from-worker">
-                <span class="who">Crystal &middot; L1</span>
-                <span class="when">03:17 AM</span>
-                <p>Anytime. One note &mdash; you had three failed attempts from a different IP earlier tonight. I'm flagging this ticket for the daytime team to review for security.</p>
+                <span class="who">Crystal &middot; Support</span>
+                <span class="when">10:21 PM</span>
+                <p>Anytime. You'll hear from me the moment it moves.</p>
               </div>
 
               <div class="t-footer">
                 <span class="tf-tag">Resolved &mdash; 3 min</span>
-                <span class="tf-tag">AD account unlocked</span>
-                <span class="tf-tag">Flagged for security review</span>
+                <span class="tf-tag">Status watch set</span>
+                <span class="tf-tag">Follow-up scheduled</span>
               </div>
             </div>
           </div>
@@ -170,10 +174,10 @@ const faqSchema = {
             <h2>Your existing stack.</h2>
             <table class="def-table">
               <tbody>
-                <tr><th>PSA / Ticketing</th><td>ConnectWise &middot; Autotask &middot; Freshservice &middot; Halo (planned)</td></tr>
-                <tr><th>RMM</th><td>Kaseya &middot; NinjaRMM (planned) &middot; Datto</td></tr>
-                <tr><th>Directory / SSO</th><td>Entra ID &middot; Okta &middot; Google Workspace</td></tr>
-                <tr><th>Comms</th><td>Slack &middot; Teams &middot; Email</td></tr>
+                <tr><th>Helpdesk / Ticketing</th><td>Zendesk &middot; Freshdesk &middot; Intercom &middot; Help Scout &middot; Front</td></tr>
+                <tr><th>Email</th><td>Gmail &middot; Outlook &middot; shared inbox tools</td></tr>
+                <tr><th>Live chat</th><td>Intercom &middot; Drift &middot; Crisp &middot; Tidio</td></tr>
+                <tr><th>CRM</th><td>HubSpot &middot; Salesforce &middot; Pipedrive</td></tr>
               </tbody>
             </table>
             <p class="section-footnote">
@@ -186,8 +190,8 @@ const faqSchema = {
             <h2>What it costs.</h2>
             <table class="def-table">
               <tbody>
-                <tr><th>Market salary (loaded)</th><td>~$60,000 / yr</td></tr>
-                <tr><th>Crystal L1 worker</th><td>~$2,500 / mo</td></tr>
+                <tr><th>Market salary (loaded)</th><td>~$50,000 / yr</td></tr>
+                <tr><th>Crystal support rep</th><td>~$2,000 / mo</td></tr>
                 <tr><th>Coverage</th><td>24 / 7 (overnights &amp; weekends)</td></tr>
                 <tr><th>Setup time</th><td>3&ndash;5 business days</td></tr>
                 <tr><th>Free trial</th><td>28 days, no card</td></tr>
@@ -206,25 +210,25 @@ const faqSchema = {
         <h2>Real questions, honest answers.</h2>
         <div class="faq">
           <div class="faq-item">
-            <h3>What's your close rate?</h3>
-            <p>Depends on the scope you define at setup. A narrow L1 scope (password resets, access requests, common faults) closes 70&ndash;85% unassisted. Anything outside that scope routes to L2 with notes.</p>
+            <h3>What percentage of tickets does it close on its own?</h3>
+            <p>Depends on the scope you define at setup. A narrow scope (FAQs, order status, account questions, common how-tos) closes 70&ndash;85% unassisted. Anything outside that scope routes to a named human with full context and suggested next steps.</p>
           </div>
           <div class="faq-item">
-            <h3>What if it confidently answers wrong?</h3>
-            <p>Biggest risk in L1. We scope tightly at setup and monitor for confidence drift. Corrections go into the knowledge base and stick. Every action is logged &mdash; fully auditable.</p>
+            <h3>What about refunds, escalations, and complaints?</h3>
+            <p>Judgment calls route to a human immediately. The worker doesn't issue refunds, resolve complaints, or make customer-affecting decisions without you being able to reverse them. Kill switch is on every deployment. We set routing rules together at setup.</p>
           </div>
           <div class="faq-item">
-            <h3>Can it page on-call for real incidents?</h3>
-            <p>Yes, with rules you define. Out-of-scope or high-severity tickets route directly to the named engineer, skipping the queue. The worker never sits on something it shouldn't.</p>
+            <h3>Can it work across email, tickets, and chat at the same time?</h3>
+            <p>Yes. Same worker, same knowledge base, all your channels. If a customer starts in chat and follows up over email, the worker picks up the thread. One worker, one brain &mdash; not three disconnected bots.</p>
           </div>
         </div>
       </section>
 
       <!-- CTA -->
       <div class="worker-cta">
-        <h3>Hiring L1 help desk?</h3>
-        <p>Book a 15-minute working session. We'll walk through your current queue and show you what one of ours would do with it.</p>
-        <a href="#contact" class="btn btn-primary" data-hire data-role="l1-helpdesk">Book a working session</a>
+        <h3>Hiring for support?</h3>
+        <p>Book a 15-minute working session. We'll walk through your current inbox or queue and show you what one of ours would do with it.</p>
+        <a href="#contact" class="btn btn-primary" data-hire data-role="support">Book a working session</a>
       </div>
     </div>
   </article>
@@ -339,26 +343,6 @@ const faqSchema = {
   .pc-body .sub-block p:last-child { margin-bottom: 0; }
   .pc-body .fit-card { margin-top: 2rem; }
 
-  /* Single-column section */
-  .worker-section {
-    padding: 2.5rem 0;
-    border-top: 1px solid var(--rule);
-    max-width: 60rem;
-  }
-  .worker-section h2 {
-    font-size: clamp(1.4rem, 2.4vw, 1.8rem);
-    font-weight: 600;
-    letter-spacing: -0.01em;
-    margin: 0 0 1rem;
-  }
-  .worker-section p {
-    margin: 0 0 1rem;
-    color: var(--ink-2);
-    max-width: 62ch;
-    line-height: 1.6;
-  }
-  .worker-section p:last-child { margin-bottom: 0; }
-
   /* "Does" list */
   .does {
     list-style: none;
@@ -449,21 +433,11 @@ const faqSchema = {
     letter-spacing: 0.02em;
   }
 
-  /* Two-up (doesn't do + fit) */
-  .two-up {
-    display: grid;
-    grid-template-columns: 1.3fr 1fr;
-    gap: 2rem;
-  }
-  @media (max-width: 760px) {
-    .two-up { grid-template-columns: 1fr; }
-  }
   .fit-card {
     background: var(--paper-2);
     border: 1px solid var(--rule);
     border-radius: var(--radius);
     padding: 1.5rem 1.5rem 1.25rem;
-    align-self: start;
   }
   .fit-label {
     display: inline-block;
