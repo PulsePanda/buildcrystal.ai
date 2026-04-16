@@ -98,7 +98,7 @@ import CrystalMark from '../components/CrystalMark.astro';
   <section class="band band-ink">
     <div class="frame">
       <p class="eyebrow-sm on-dark">What's shipping, right now</p>
-      <h2 class="on-dark">Two workers live. Three more in scoping.</h2>
+      <h2 class="on-dark">Two workers live, three more in training.</h2>
       <div class="live-grid">
         <div class="live-card">
           <div class="live-top">
@@ -126,13 +126,14 @@ import CrystalMark from '../components/CrystalMark.astro';
         </div>
         <div class="live-card pending">
           <div class="live-top">
-            <span class="live-tag pending">In scoping</span>
+            <span class="live-tag pending">In training</span>
             <span class="live-where">Next three</span>
           </div>
           <h3>Intake, bookkeeper, scheduler</h3>
           <p>
-            Three more roles in design. Getting in early means shaping what the worker does from day one.
-            Tell us the seat you're trying to fill and we'll tell you if it's on the next cut.
+            Three more roles getting trained up right now. Getting in early lets you shape what the
+            worker does from day one. Tell us the seat you're trying to fill and we'll tell you if
+            it's on the next cut.
           </p>
           <a href="#contact" class="live-link" data-hire data-role="other">Tell us about your seat &rarr;</a>
         </div>
@@ -182,10 +183,6 @@ import CrystalMark from '../components/CrystalMark.astro';
         <li>
           <strong>Pretend day one is genius.</strong>
           <span>Day one is rough. Same as any new hire. That's the honest part.</span>
-        </li>
-        <li>
-          <strong>Resell AI.</strong>
-          <span>You own your Anthropic account. You pay usage directly. Keeps us honest about efficiency.</span>
         </li>
         <li>
           <strong>Sell a multi-agent platform before one worker is proven.</strong>
@@ -333,11 +330,10 @@ import CrystalMark from '../components/CrystalMark.astro';
 
   /* DARK BAND (What's live) */
   .band-ink h2 {
-    font-size: clamp(1.7rem, 3vw, 2.3rem);
+    font-size: clamp(1.5rem, 2.8vw, 2.1rem);
     letter-spacing: -0.015em;
     margin: 0 0 2rem;
     font-weight: 600;
-    max-width: 22ch;
   }
   .band-ink h2.on-dark { color: var(--paper); }
   .live-grid {
