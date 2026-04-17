@@ -1,11 +1,7 @@
 ---
 // ContactModal — shared across all pages via Base layout.
 // Triggered by any element with [data-hire] and [data-role="..."].
-//
-// TODO: POST to a webhook handled by Crystal's own receptionist agent
-// once it's deployed. See memory: buildcrystal-site-decisions.md.
-// Until the agent is live, submissions are logged to console and the UI
-// shows a success state.
+// Submits to ops.buildcrystal.ai/public/contact → Lela (reception agent).
 ---
 
 <dialog id="contact-modal" class="contact-dialog" aria-labelledby="contact-heading">
@@ -128,13 +124,49 @@
       if (e.target === dialog) closeModal();
     });
 
-    // TODO: wire to Crystal receptionist webhook once the agent is live.
-    form.addEventListener('submit', (e) => {
+    const submitBtn = form.querySelector('button[type="submit"]') as HTMLButtonElement;
+
+    form.addEventListener('submit', async (e) => {
       e.preventDefault();
       const data = Object.fromEntries(new FormData(form).entries());
-      console.log('[contact form — placeholder. Will webhook to Crystal receptionist once live.]', data);
-      bodyEl.hidden = true;
-      successEl.hidden = false;
+
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Sending...';
+
+      // Build the context message
+      const roleName: Record<string, string> = {
+        receptionist: 'hiring a receptionist',
+        support: 'hiring a support rep',
+        other: 'hiring for a role',
+        general: 'scheduling a working session',
+      };
+      const interest = roleName[data.role as string] || 'scheduling a working session';
+      let msg = `Hi, I'm ${data.name} from ${data.company || 'my business'}. I'm interested in ${interest}.`;
+      if (data.message) msg += ` ${data.message}`;
+      msg += ` My email is ${data.email}.`;
+
+      // Step 1: Fire-and-forget POST to Lela so data is saved (don't await)
+      fetch('https://ops.buildcrystal.ai/public/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: data.name,
+          email: data.email,
+          company: data.company || '',
+          role: data.role || 'general',
+          message: data.message || '',
+        }),
+      }).catch(err => console.warn('[contact form] backend error:', err));
+
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Send';
+
+      // Step 2: Immediately close the modal and open chat with context
+      closeModal();
+      const chatWidget = (window as any).__crystalChat;
+      if (chatWidget) {
+        chatWidget.openWithMessage(msg);
+      }
     });
   }
 </script>
