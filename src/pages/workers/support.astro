@@ -242,7 +242,7 @@ const faqSchema = {
     font-weight: 500;
     letter-spacing: 0.08em;
     text-transform: uppercase;
-    color: var(--accent);
+    color: var(--accent-ink);
     margin: 0 0 1rem;
   }
   .worker-head h1 {
@@ -261,7 +261,7 @@ const faqSchema = {
   }
   .head-meta {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(10rem, 100%), 1fr));
     gap: 1rem;
     padding: 1.25rem 0;
     border-top: 1px solid var(--rule);
@@ -283,7 +283,7 @@ const faqSchema = {
     font-weight: 500;
     letter-spacing: 0.1em;
     text-transform: uppercase;
-    color: var(--accent);
+    color: var(--accent-ink);
     margin: 0 0 0.65rem;
   }
   .section-sub {
@@ -445,7 +445,7 @@ const faqSchema = {
     font-weight: 600;
     letter-spacing: 0.1em;
     text-transform: uppercase;
-    color: var(--accent);
+    color: var(--accent-ink);
     margin: 0 0 0.75rem;
   }
   .fit-list {
@@ -466,7 +466,7 @@ const faqSchema = {
   }
   .fit-list li::before {
     content: "✓";
-    color: var(--accent);
+    color: var(--accent-ink);
     font-weight: 700;
     flex-shrink: 0;
   }
@@ -509,7 +509,7 @@ const faqSchema = {
   }
   .faq {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(18rem, 100%), 1fr));
     gap: 1rem;
     max-width: 60rem;
   }

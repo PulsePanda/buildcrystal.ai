@@ -217,7 +217,7 @@ import CrystalMark from '../components/CrystalMark.astro';
     font-weight: 500;
     letter-spacing: 0.08em;
     text-transform: uppercase;
-    color: var(--accent);
+    color: var(--accent-ink);
     margin: 0 0 1.25rem;
   }
   .hero h1 {
@@ -249,7 +249,7 @@ import CrystalMark from '../components/CrystalMark.astro';
     font-weight: 500;
     letter-spacing: 0.1em;
     text-transform: uppercase;
-    color: var(--accent);
+    color: var(--accent-ink);
     margin: 0 0 0.75rem;
   }
   .eyebrow-sm.on-dark { color: #ffb383; }
@@ -313,7 +313,7 @@ import CrystalMark from '../components/CrystalMark.astro';
   }
   .pull-mark {
     display: inline-flex;
-    color: var(--accent);
+    color: var(--accent-ink);
     margin-bottom: 1rem;
   }
   .pull-band blockquote {
@@ -341,7 +341,7 @@ import CrystalMark from '../components/CrystalMark.astro';
   .band-ink h2.on-dark { color: var(--paper); }
   .live-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(16rem, 100%), 1fr));
     gap: 1rem;
   }
   .live-card {
@@ -395,6 +395,10 @@ import CrystalMark from '../components/CrystalMark.astro';
     font-size: 0.9rem;
     font-weight: 500;
     transition: color 120ms ease;
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    padding: 0.5rem 0;
   }
   .live-link:hover { color: #ffd4b8; }
 
@@ -410,7 +414,7 @@ import CrystalMark from '../components/CrystalMark.astro';
     padding: 0;
     margin: 0;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(20rem, 100%), 1fr));
     gap: 0.75rem;
   }
   .wont-list li {

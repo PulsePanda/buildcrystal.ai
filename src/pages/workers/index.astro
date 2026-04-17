@@ -247,7 +247,7 @@ const itemListSchema = {
     font-weight: 500;
     letter-spacing: 0.08em;
     text-transform: uppercase;
-    color: var(--accent);
+    color: var(--accent-ink);
     margin: 0 0 1.25rem;
   }
   .hero h1 {
@@ -276,7 +276,7 @@ const itemListSchema = {
     padding-top: 1.5rem;
     border-top: 1px solid var(--rule);
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(12rem, 100%), 1fr));
     gap: 1.5rem;
     color: var(--ink-muted);
     font-size: 0.92rem;
@@ -295,7 +295,7 @@ const itemListSchema = {
   /* SHARED GRID */
   .shared-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(15rem, 100%), 1fr));
     gap: 1rem;
   }
   .shared {
@@ -308,7 +308,7 @@ const itemListSchema = {
     gap: 0.5rem;
   }
   .shared-mark {
-    color: var(--accent);
+    color: var(--accent-ink);
     display: inline-flex;
     align-items: center;
   }
@@ -360,7 +360,7 @@ const itemListSchema = {
     width: 42px; height: 42px;
     border-radius: 8px;
     background: var(--accent-wash);
-    color: var(--accent);
+    color: var(--accent-ink);
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -441,7 +441,7 @@ const itemListSchema = {
   }
   .bm-line .bm-k { color: var(--ink-muted); }
   .bm-line .bm-v { color: var(--ink); font-family: var(--mono); }
-  .bm-line.bm-highlight .bm-v { color: var(--accent); font-weight: 600; }
+  .bm-line.bm-highlight .bm-v { color: var(--accent-ink); font-weight: 600; }
   .big-role-ctas {
     display: flex;
     gap: 0.5rem;
@@ -459,7 +459,7 @@ const itemListSchema = {
   }
   .training-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(16rem, 100%), 1fr));
     gap: 1rem;
   }
   .training {
@@ -478,7 +478,7 @@ const itemListSchema = {
     font-weight: 600;
     letter-spacing: 0.1em;
     text-transform: uppercase;
-    color: var(--accent);
+    color: var(--accent-ink);
     background: var(--accent-wash);
     padding: 0.22rem 0.6rem;
     border-radius: 999px;
@@ -505,12 +505,12 @@ const itemListSchema = {
     text-decoration: none;
     transition: color 120ms ease;
   }
-  .training-link:hover { color: var(--accent); }
+  .training-link:hover { color: var(--accent-ink); }
 
   /* STEPS (mirrored from homepage) */
   .steps {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(16rem, 100%), 1fr));
     gap: 1.25rem;
   }
   .step {
@@ -522,7 +522,7 @@ const itemListSchema = {
   .step .num {
     font-family: var(--mono);
     font-size: 0.8rem;
-    color: var(--accent);
+    color: var(--accent-ink);
     letter-spacing: 0.08em;
     margin-bottom: 0.6rem;
   }

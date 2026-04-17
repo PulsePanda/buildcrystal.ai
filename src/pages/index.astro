@@ -209,7 +209,7 @@ const websiteSchema = {
     font-weight: 500;
     letter-spacing: 0.06em;
     text-transform: uppercase;
-    color: var(--accent);
+    color: var(--accent-ink);
     margin: 0 0 1.25rem;
   }
   .eyebrow .dot {
@@ -252,7 +252,7 @@ const websiteSchema = {
     padding-top: 1.5rem;
     border-top: 1px solid var(--rule);
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(12rem, 100%), 1fr));
     gap: 1.5rem;
     color: var(--ink-muted);
     font-size: 0.92rem;
@@ -336,7 +336,7 @@ const websiteSchema = {
     width: 36px; height: 36px;
     border-radius: 8px;
     background: var(--accent-wash);
-    color: var(--accent);
+    color: var(--accent-ink);
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -401,7 +401,7 @@ const websiteSchema = {
   }
   .role-math .line .k { color: var(--ink-muted); }
   .role-math .line .v { color: var(--ink); font-family: var(--mono); font-size: 0.92rem; }
-  .role-math .line.highlight .v { color: var(--accent); font-weight: 600; }
+  .role-math .line.highlight .v { color: var(--accent-ink); font-weight: 600; }
   .role-detail {
     font-size: 0.85rem;
     color: var(--ink-muted);
@@ -446,7 +446,7 @@ const websiteSchema = {
   /* STEPS */
   .steps {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(16rem, 100%), 1fr));
     gap: 1.25rem;
   }
   .step {
@@ -458,7 +458,7 @@ const websiteSchema = {
   .step .num {
     font-family: var(--mono);
     font-size: 0.8rem;
-    color: var(--accent);
+    color: var(--accent-ink);
     letter-spacing: 0.08em;
     margin-bottom: 0.6rem;
   }
@@ -553,7 +553,7 @@ const websiteSchema = {
     gap: 1rem;
   }
   .run-own .mk {
-    color: var(--accent);
+    color: var(--accent-ink);
     flex-shrink: 0;
     display: inline-flex;
     align-items: center;

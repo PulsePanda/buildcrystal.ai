@@ -76,8 +76,9 @@ const schemas = [organizationSchema, ...(jsonLd ? (Array.isArray(jsonLd) ? jsonL
   ))}
 </head>
 <body>
+  <a href="#main" class="skip-link">Skip to main content</a>
   <Nav active={active} />
-  <main>
+  <main id="main" tabindex="-1">
     <slot />
   </main>
   <Footer />

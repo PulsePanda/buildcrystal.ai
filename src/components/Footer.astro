@@ -4,8 +4,12 @@ const year = new Date().getFullYear();
 
 <footer class="site">
   <div class="frame foot-row">
-    <p>&copy; {year} Build Crystal &middot; By <a href="https://austinv.me">Austin VanAlstyne</a></p>
-    <p>Better Workers For Your Business.</p>
+    <p class="foot-copy">&copy; {year} Build Crystal &middot; By <a href="https://austinv.me">Austin VanAlstyne</a></p>
+    <nav class="foot-links" aria-label="Footer">
+      <a href="/support">Support</a>
+      <a href="/privacy">Privacy</a>
+    </nav>
+    <p class="foot-tag">Better Workers For Your Business.</p>
   </div>
 </footer>
 
@@ -17,9 +21,10 @@ const year = new Date().getFullYear();
   .foot-row {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     gap: 1.5rem;
     flex-wrap: wrap;
-    color: var(--ink-faint);
+    color: var(--ink-muted);
     font-size: 0.88rem;
   }
   .foot-row a {
@@ -33,4 +38,17 @@ const year = new Date().getFullYear();
     border-bottom-color: var(--ink-muted);
   }
   .foot-row p { margin: 0; }
+  .foot-links {
+    display: flex;
+    gap: 0.5rem;
+  }
+  .foot-links a {
+    padding: 0.6rem 0.85rem;
+    border-radius: 6px;
+  }
+  .foot-links a:hover {
+    border-bottom-color: transparent;
+    background: var(--rule);
+    color: var(--ink);
+  }
 </style>
