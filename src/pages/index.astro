@@ -97,12 +97,16 @@ const websiteSchema = {
         </article>
 
         <article class="role teaser">
-          <div class="role-top">
-            <div class="role-icon teaser-icon" aria-hidden="true">?</div>
-            <span class="role-status pending">In build</span>
+          <div class="teaser-body">
+            <div class="teaser-head">
+              <div class="role-top">
+                <div class="role-icon teaser-icon" aria-hidden="true">?</div>
+                <span class="role-status pending">In build</span>
+              </div>
+              <h3>More roles coming.</h3>
+            </div>
+            <p class="role-for">Intake coordinators, bookkeepers, office managers, schedulers. If the seat you're hiring for isn't listed yet, tell us &mdash; we'll build it if it's a fit.</p>
           </div>
-          <h3>More roles coming.</h3>
-          <p class="role-for">Intake coordinators, bookkeepers, office managers, schedulers. If the seat you're hiring for isn't listed yet, tell us &mdash; we'll build it if it's a fit.</p>
           <a href="#contact" class="apply teaser-apply" data-hire data-role="other">Tell us about your seat &rarr;</a>
         </article>
 
@@ -277,9 +281,22 @@ const websiteSchema = {
     align-items: center;
     gap: 1.5rem;
   }
+  .role.teaser .teaser-body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    min-width: 0;
+  }
+  .role.teaser .teaser-head {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+  }
   .role.teaser .role-top { flex: 0 0 auto; }
-  .role.teaser h3 { margin: 0; flex: 0 0 auto; white-space: nowrap; }
-  .role.teaser .role-for { flex: 1; margin: 0; }
+  .role.teaser h3 { margin: 0; flex: 0 0 auto; }
+  .role.teaser .role-for { margin: 0; }
   .role.teaser .apply { width: auto; flex: 0 0 auto; margin: 0; }
   @media (max-width: 720px) {
     .roles { grid-template-columns: 1fr; }
@@ -288,7 +305,6 @@ const websiteSchema = {
       align-items: stretch;
       gap: 1rem;
     }
-    .role.teaser h3 { white-space: normal; }
     .role.teaser .apply { width: 100%; }
   }
   .role {
