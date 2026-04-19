@@ -1,0 +1,85 @@
+---
+import CrystalMark from './CrystalMark.astro';
+
+interface Props {
+  active?: 'home' | 'workers' | 'about';
+}
+
+const { active } = Astro.props;
+---
+
+<nav class="topnav">
+  <div class="frame topnav-row">
+    <a href="/" class="wordmark" aria-label="Build Crystal home">
+      <span class="mark" aria-hidden="true"><CrystalMark size={14} /></span>
+      <span class="name">Build Crystal</span>
+    </a>
+    <div class="topnav-links">
+      <a href="/workers" class:list={[{ current: active === 'workers' }]}>Workers</a>
+      <a href="/about" class:list={[{ current: active === 'about' }]}>About</a>
+      <a href="#contact" class="topnav-cta" data-hire data-role="general">Book a working session</a>
+    </div>
+  </div>
+</nav>
+
+<style>
+  .topnav {
+    border-bottom: 1px solid var(--rule);
+    background: var(--paper);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    backdrop-filter: saturate(180%) blur(6px);
+    -webkit-backdrop-filter: saturate(180%) blur(6px);
+    background: rgba(250, 250, 247, 0.92);
+  }
+  .topnav-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.1rem 0;
+    gap: 1rem;
+  }
+  .wordmark {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+    text-decoration: none;
+    color: var(--ink);
+    font-weight: 600;
+    letter-spacing: 0.01em;
+  }
+  .wordmark .mark {
+    color: var(--accent);
+    display: inline-flex;
+    align-items: center;
+  }
+  .wordmark .name { font-size: 1.05rem; }
+  .topnav-links {
+    display: flex; gap: 1.25rem; align-items: center;
+    font-size: 0.93rem;
+  }
+  .topnav-links a {
+    text-decoration: none;
+    color: var(--ink-muted);
+    transition: color 120ms ease;
+  }
+  .topnav-links a:hover,
+  .topnav-links a.current { color: var(--ink); }
+  .topnav-cta {
+    padding: 0.55rem 0.95rem;
+    border: 1px solid var(--ink);
+    border-radius: 8px;
+    color: var(--ink) !important;
+    background: transparent;
+    font-weight: 500;
+    transition: background 120ms ease, color 120ms ease;
+  }
+  .topnav-cta:hover {
+    background: var(--ink);
+    color: var(--paper) !important;
+  }
+  @media (max-width: 560px) {
+    .topnav-links a:not(.topnav-cta) { display: none; }
+  }
+</style>

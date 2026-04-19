@@ -1,0 +1,54 @@
+---
+const year = new Date().getFullYear();
+---
+
+<footer class="site">
+  <div class="frame foot-row">
+    <p class="foot-copy">&copy; {year} Build Crystal &middot; By <a href="https://austinv.me">Austin VanAlstyne</a></p>
+    <nav class="foot-links" aria-label="Footer">
+      <a href="/support">Support</a>
+      <a href="/privacy">Privacy</a>
+    </nav>
+    <p class="foot-tag">Better Workers For Your Business.</p>
+  </div>
+</footer>
+
+<style>
+  footer.site {
+    border-top: 1px solid var(--rule);
+    padding: 2rem 0 2.5rem;
+  }
+  .foot-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    color: var(--ink-muted);
+    font-size: 0.88rem;
+  }
+  .foot-row a {
+    color: var(--ink-muted);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: border-color 120ms ease, color 120ms ease;
+  }
+  .foot-row a:hover {
+    color: var(--ink);
+    border-bottom-color: var(--ink-muted);
+  }
+  .foot-row p { margin: 0; }
+  .foot-links {
+    display: flex;
+    gap: 0.5rem;
+  }
+  .foot-links a {
+    padding: 0.6rem 0.85rem;
+    border-radius: 6px;
+  }
+  .foot-links a:hover {
+    border-bottom-color: transparent;
+    background: var(--rule);
+    color: var(--ink);
+  }
+</style>

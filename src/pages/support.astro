@@ -1,0 +1,269 @@
+---
+// Support — a full-page contact form for existing customers or anyone
+// who needs help with a deployed worker or the site itself.
+//
+// TODO: POST to a webhook handled by the Crystal Support Rep agent
+// once it's deployed. Until then, submissions are logged to console
+// and the UI shows a success state. Matches the same wiring pattern
+// as ContactModal.astro. See memory: buildcrystal-site-decisions.md.
+import Base from '../layouts/Base.astro';
+---
+
+<Base
+  title="Support — Build Crystal"
+  description="Get help with a deployed Crystal worker or the site. One form, one reply, same business day."
+  ogTitle="Support"
+  ogDescription="Get help with a deployed Crystal worker. One form, one reply, same business day."
+>
+
+  <section class="hero hero-slim">
+    <div class="frame">
+      <p class="eyebrow">Support</p>
+      <h1>Need a hand?</h1>
+      <p class="lede">
+        Something broken? Worker doing something it shouldn't? Got a question about an existing
+        deployment? Send it in. We reply within one business day, usually faster.
+      </p>
+    </div>
+  </section>
+
+  <section class="band band-paper">
+    <div class="frame support-wrap">
+
+      <div class="support-intro">
+        <h2>Before you send</h2>
+        <p>
+          If this is urgent and tied to a deployed worker, call the number you were given at
+          deployment &mdash; the worker answers the line and can escalate to Austin directly.
+        </p>
+        <p>
+          If it's not urgent, or you'd rather write it down, the form is the fastest way. It
+          goes straight to our support worker, who triages it and routes it to a human.
+        </p>
+        <p class="support-contact-line">
+          Prefer email? Write to
+          <a href="mailto:help@buildcrystal.ai">help@buildcrystal.ai</a>.
+        </p>
+      </div>
+
+      <form class="support-form" id="support-form" novalidate>
+        <div class="support-body">
+          <label>
+            <span>Your name</span>
+            <input type="text" name="name" required autocomplete="name" />
+          </label>
+          <label>
+            <span>Email</span>
+            <input type="email" name="email" required autocomplete="email" />
+          </label>
+          <label>
+            <span>Business / company</span>
+            <input type="text" name="company" autocomplete="organization" />
+          </label>
+          <label>
+            <span>What's this about?</span>
+            <select name="topic" required>
+              <option value="">Pick one</option>
+              <option value="deployed-worker">Help with a deployed worker</option>
+              <option value="billing">Billing or account</option>
+              <option value="site-issue">Something on this site is broken</option>
+              <option value="general">General question</option>
+              <option value="other">Something else</option>
+            </select>
+          </label>
+          <label>
+            <span>What's going on?</span>
+            <textarea
+              name="message"
+              rows="6"
+              required
+              placeholder="What happened, when it started, what you've tried. The more detail, the faster we can help."
+            ></textarea>
+          </label>
+
+          <div class="support-actions">
+            <button type="submit" class="btn btn-primary">Send</button>
+          </div>
+          <p class="support-fineprint">
+            By sending, you agree to the <a href="/privacy">privacy policy</a>.
+          </p>
+        </div>
+
+        <div class="support-success" hidden>
+          <div class="support-check" aria-hidden="true">&#10003;</div>
+          <h2>Got it. We'll be in touch.</h2>
+          <p>We reply within one business day. Check the inbox you submitted.</p>
+        </div>
+      </form>
+
+    </div>
+  </section>
+
+</Base>
+
+<script>
+  const form = document.getElementById('support-form') as HTMLFormElement | null;
+  if (form) {
+    const bodyEl = form.querySelector('.support-body') as HTMLElement;
+    const successEl = form.querySelector('.support-success') as HTMLElement;
+
+    // TODO: wire to Crystal Support Rep webhook once the agent is live.
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      if (!form.checkValidity()) {
+        form.reportValidity();
+        return;
+      }
+      const data = Object.fromEntries(new FormData(form).entries());
+      console.log('[support form — placeholder. Will webhook to Crystal Support Rep once live.]', data);
+      bodyEl.hidden = true;
+      successEl.hidden = false;
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
+</script>
+
+<style>
+  .hero-slim {
+    padding-top: clamp(3rem, 5vw, 4.5rem);
+    padding-bottom: clamp(1.5rem, 3vw, 2rem);
+  }
+  .support-wrap {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.35fr);
+    gap: clamp(2rem, 5vw, 4rem);
+    align-items: start;
+    max-width: 60rem;
+  }
+  .support-intro h2 {
+    font-size: 1.15rem;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    margin: 0 0 0.75rem;
+    color: var(--ink);
+  }
+  .support-intro p {
+    margin: 0 0 0.9rem;
+    color: var(--ink-2);
+    font-size: 0.98rem;
+    line-height: 1.6;
+  }
+  .support-intro a {
+    color: var(--ink);
+    border-bottom: 1px solid var(--rule-strong);
+    text-decoration: none;
+    transition: color 120ms ease, border-color 120ms ease;
+  }
+  .support-intro a:hover {
+    color: var(--accent-ink);
+    border-bottom-color: var(--accent);
+  }
+  .support-contact-line {
+    margin-top: 1.25rem !important;
+    padding-top: 1.25rem;
+    border-top: 1px solid var(--rule);
+    color: var(--ink-muted) !important;
+    font-size: 0.92rem !important;
+  }
+
+  .support-form {
+    background: #fff;
+    border: 1px solid var(--rule);
+    border-radius: 12px;
+    padding: clamp(1.5rem, 3vw, 2rem);
+    box-shadow: 0 2px 10px -4px rgba(21, 23, 26, 0.08);
+  }
+  .support-form label {
+    display: block;
+    margin-bottom: 1rem;
+  }
+  .support-form label > span {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 500;
+    margin-bottom: 0.35rem;
+    color: var(--ink-2);
+  }
+  .support-form input[type="text"],
+  .support-form input[type="email"],
+  .support-form select,
+  .support-form textarea {
+    width: 100%;
+    padding: 0.75rem 0.9rem;
+    font-size: 0.98rem;
+    border: 1px solid var(--rule-strong);
+    border-radius: 8px;
+    background: #fff;
+    color: var(--ink);
+    font-family: inherit;
+    transition: border-color 120ms ease, box-shadow 120ms ease;
+  }
+  .support-form textarea {
+    resize: vertical;
+    min-height: 6rem;
+    line-height: 1.55;
+  }
+  .support-form input:focus,
+  .support-form select:focus,
+  .support-form textarea:focus {
+    outline: none;
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px var(--accent-wash);
+  }
+  .support-actions {
+    display: flex;
+    gap: 0.6rem;
+    justify-content: flex-end;
+    margin-top: 0.5rem;
+  }
+  .support-actions .btn { padding: 0.75rem 1.4rem; font-size: 0.98rem; }
+  .support-fineprint {
+    margin: 0.85rem 0 0;
+    text-align: right;
+    color: var(--ink-faint);
+    font-size: 0.82rem;
+  }
+  .support-fineprint a {
+    color: var(--ink-muted);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: color 120ms ease, border-color 120ms ease;
+  }
+  .support-fineprint a:hover {
+    color: var(--ink);
+    border-bottom-color: var(--ink-muted);
+  }
+
+  .support-success {
+    text-align: center;
+    padding: 2rem 1rem 1rem;
+  }
+  .support-check {
+    margin: 0 auto 1rem;
+    width: 52px; height: 52px;
+    border-radius: 50%;
+    background: var(--accent-wash);
+    color: var(--accent-ink);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.7rem;
+    font-weight: 700;
+  }
+  .support-success h2 {
+    font-size: 1.3rem;
+    margin: 0 0 0.5rem;
+    letter-spacing: -0.015em;
+    font-weight: 600;
+    color: var(--ink);
+  }
+  .support-success p {
+    margin: 0;
+    color: var(--ink-muted);
+    font-size: 0.95rem;
+  }
+
+  @media (max-width: 820px) {
+    .support-wrap {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
