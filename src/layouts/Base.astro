@@ -16,7 +16,7 @@ interface Props {
 
 const {
   title,
-  description = 'Build Crystal builds AI workers for specific job roles — receptionists, support reps, more on the way. Half the cost of a human hire, working 24/7, ready in days.',
+  description = 'Crystal AI builds AI workers for specific job roles — receptionists, support reps, more on the way. Half the cost of a human hire, working 24/7, ready in days.',
   active,
   ogTitle,
   ogDescription,
@@ -31,10 +31,10 @@ const ogImageUrl = `${siteUrl}/favicon.svg`;
 const organizationSchema = {
   "@context": "https://schema.org",
   "@type": "Organization",
-  "name": "Build Crystal",
+  "name": "Crystal AI",
   "url": siteUrl,
   "logo": ogImageUrl,
-  "description": "Build Crystal builds purpose-built AI workers for specific job roles — receptionists, support reps, and more. Half the cost of a human hire, working 24/7.",
+  "description": "Crystal AI builds purpose-built AI workers for specific job roles — receptionists, support reps, and more. Half the cost of a human hire, working 24/7.",
   "founder": {
     "@type": "Person",
     "name": "Austin VanAlstyne"
@@ -58,7 +58,7 @@ const schemas = [organizationSchema, ...(jsonLd ? (Array.isArray(jsonLd) ? jsonL
   <meta property="og:description" content={ogDescription ?? description} />
   <meta property="og:type" content="website" />
   <meta property="og:url" content={canonicalUrl} />
-  <meta property="og:site_name" content="Build Crystal" />
+  <meta property="og:site_name" content="Crystal AI" />
   <meta property="og:image" content={ogImageUrl} />
 
   <!-- Twitter Card -->
