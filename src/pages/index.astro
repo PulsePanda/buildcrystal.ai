@@ -1,5 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
+import HeroChat from '../components/HeroChat.astro';
 import CrystalMark from '../components/CrystalMark.astro';
 
 const websiteSchema = {
@@ -12,33 +13,40 @@ const websiteSchema = {
 ---
 
 <Base
-  title="Build Crystal — Better Workers For Your Business."
-  description="Build Crystal builds AI workers for specific job roles — receptionists, support reps, and more. Half the cost of a human hire. Working 24/7. Ready in days. First 28 days free."
-  ogTitle="Build Crystal — Better Workers For Your Business."
-  ogDescription="Virtual employees for the seats you're hiring for. Half the cost. 24/7. Ready in 3-5 days. First 28 days free."
+  title="Build Crystal — Talk to our receptionist. She's an AI."
+  description="Lela is Crystal's AI receptionist. She picks up every call, books appointments, and works 24/7 at half the cost of a human hire. Talk to her right now."
+  ogTitle="Talk to our receptionist. She's an AI."
+  ogDescription="Lela picks up every call, books appointments, and works 24/7. Half the cost. Try her live — no signup needed."
   active="home"
   jsonLd={websiteSchema}
 >
 
-  <!-- HERO -->
+  <!-- Background washes -->
+  <div class="bg-washes" aria-hidden="true">
+    <div class="bg-wash bg-wash-1"></div>
+    <div class="bg-wash bg-wash-2"></div>
+  </div>
+
+  <!-- HERO — split layout: value prop + live chat -->
   <section class="hero">
-    <div class="frame">
-      <p class="eyebrow"><span class="dot" aria-hidden="true"></span>Now hiring: businesses with a seat to fill</p>
-      <h1>Hire AI workers that grow with you.</h1>
-      <p class="sub">
-        We make virtual employees for specific roles &mdash; receptionists, support reps, more on the way.
-        Half the cost. Working 24/7. Ready in days, not weeks.
-      </p>
-      <div class="hero-ctas">
-        <a href="#roles" class="btn btn-primary">See who's available</a>
-        <a href="#contact" class="btn btn-secondary" data-hire data-role="general">Book a working session</a>
+    <div class="frame hero-grid">
+      <div class="hero-text">
+        <p class="eyebrow"><span class="dot" aria-hidden="true"></span>Live right now</p>
+        <h1>Talk to our receptionist. She's an AI.</h1>
+        <p class="sub">
+          That's Lela. She picks up every call, books appointments, and hands off what she can't solve. No PTO, no sick days, no voicemail. About half what you'd pay a person.
+        </p>
+        <div class="hero-stats">
+          <div class="hero-stat"><strong>~$2,100/mo</strong> &mdash; about half a human hire</div>
+          <div class="hero-stat"><strong>24/7</strong> &mdash; weekends and holidays too</div>
+          <div class="hero-stat"><strong>3-5 days</strong> &mdash; plugged into your tools</div>
+          <div class="hero-stat"><strong>28 days free</strong> &mdash; no card, cancel anytime</div>
+        </div>
+        <div class="hero-ctas">
+          <a href="#roles" class="link-down">See all available workers &darr;</a>
+        </div>
       </div>
-      <div class="hero-meta">
-        <div class="item"><strong>~50%</strong>of the cost</div>
-        <div class="item"><strong>3&ndash;5 days</strong>to deployment</div>
-        <div class="item"><strong>28 days</strong>free pilot, no card</div>
-        <div class="item"><strong>24/7</strong>coverage, never calls in sick</div>
-      </div>
+      <HeroChat />
     </div>
   </section>
 
@@ -202,71 +210,140 @@ const websiteSchema = {
 
 </Base>
 
+<!-- Hide floating chat widget on homepage — the hero IS the chat -->
+<style is:global>
+  .cw { display: none !important; }
+</style>
+
 <style>
+  /* Background washes */
+  .bg-washes {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 0;
+  }
+  .bg-wash {
+    position: absolute;
+    border-radius: 50%;
+  }
+  .bg-wash-1 {
+    top: -5%;
+    right: -8%;
+    width: 45vw;
+    height: 45vw;
+    background: radial-gradient(circle, var(--accent-wash) 0%, transparent 70%);
+    opacity: 0.3;
+  }
+  .bg-wash-2 {
+    bottom: -10%;
+    left: -12%;
+    width: 40vw;
+    height: 40vw;
+    background: radial-gradient(circle, var(--paper-2) 0%, transparent 70%);
+    opacity: 0.5;
+  }
+
   /* HERO */
-  .hero { padding: clamp(3.5rem, 9vw, 7rem) 0 clamp(2.5rem, 6vw, 4rem); }
+  .hero {
+    position: relative;
+    z-index: 1;
+    padding: clamp(1.5rem, 4vw, 3rem) 0 clamp(2rem, 5vw, 4rem);
+  }
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.3fr;
+    gap: clamp(2rem, 4vw, 4rem);
+    align-items: center;
+  }
   .eyebrow {
     display: inline-flex;
     align-items: center;
     gap: 0.55rem;
-    font-size: 0.8rem;
+    font-size: 0.78rem;
     font-weight: 500;
     letter-spacing: 0.06em;
     text-transform: uppercase;
     color: var(--accent-ink);
-    margin: 0 0 1.25rem;
+    margin: 0 0 1rem;
   }
   .eyebrow .dot {
     width: 7px; height: 7px;
     background: var(--accent);
     border-radius: 50%;
-    box-shadow: 0 0 0 4px var(--accent-wash);
-    animation: pulse 2.6s ease-in-out infinite;
+    box-shadow: 0 0 0 3px var(--accent-wash);
+    animation: pulse 2.5s ease-in-out infinite;
   }
   @keyframes pulse {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0.5; }
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.6; transform: scale(0.9); }
   }
   @media (prefers-reduced-motion: reduce) {
     .eyebrow .dot { animation: none; }
   }
   .hero h1 {
-    font-size: clamp(2.4rem, 6.2vw, 4.5rem);
-    line-height: 1.02;
+    font-size: clamp(2rem, 4.5vw, 3.2rem);
+    line-height: 1.08;
     letter-spacing: -0.025em;
     font-weight: 700;
-    margin: 0 0 1.25rem;
-    max-width: 18ch;
+    margin: 0 0 1rem;
   }
   .hero .sub {
-    font-size: clamp(1.05rem, 1.7vw, 1.3rem);
+    font-size: clamp(1rem, 1.4vw, 1.1rem);
     color: var(--ink-muted);
-    max-width: 46ch;
+    line-height: 1.55;
     margin: 0 0 2rem;
-    line-height: 1.45;
+    max-width: 38ch;
   }
-  .hero-ctas {
+  .hero-stats {
     display: flex;
-    gap: 0.75rem;
-    flex-wrap: wrap;
-    align-items: center;
-  }
-  .hero-meta {
-    margin-top: 2.5rem;
+    flex-direction: column;
+    gap: 0.65rem;
     padding-top: 1.5rem;
     border-top: 1px solid var(--rule);
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(min(12rem, 100%), 1fr));
-    gap: 1.5rem;
-    color: var(--ink-muted);
-    font-size: 0.92rem;
   }
-  .hero-meta .item strong {
-    display: block;
+  .hero-stat {
+    display: flex;
+    align-items: baseline;
+    gap: 0.6rem;
+    font-size: 0.88rem;
+    color: var(--ink-muted);
+  }
+  .hero-stat strong {
+    font-size: 0.95rem;
     color: var(--ink);
-    font-size: 1.05rem;
     font-weight: 600;
-    margin-bottom: 0.15rem;
+    font-family: var(--mono);
+  }
+  .hero-ctas {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    align-items: flex-start;
+  }
+  .link-down {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.85rem;
+    color: var(--ink-muted);
+    text-decoration: none;
+    border-bottom: 1px solid var(--rule-strong);
+    padding-bottom: 2px;
+    transition: color 120ms, border-color 120ms;
+  }
+  .link-down:hover { color: var(--ink); border-color: var(--ink); }
+
+  @media (max-width: 820px) {
+    .hero-grid {
+      grid-template-columns: 1fr;
+      min-height: auto;
+      gap: 2rem;
+    }
+    .hero-text { order: 2; }
+    .hero-stats { flex-direction: row; flex-wrap: wrap; gap: 1rem; }
   }
 
   /* ROLE CARDS */
