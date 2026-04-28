@@ -249,14 +249,13 @@ const websiteSchema = {
   .hero {
     position: relative;
     z-index: 1;
-    padding: clamp(2rem, 5vw, 4rem) 0;
+    padding: clamp(1.5rem, 4vw, 3rem) 0 clamp(2rem, 5vw, 4rem);
   }
   .hero-grid {
     display: grid;
     grid-template-columns: 1fr 1.3fr;
     gap: clamp(2rem, 4vw, 4rem);
     align-items: center;
-    min-height: calc(100vh - 80px);
   }
   .eyebrow {
     display: inline-flex;
