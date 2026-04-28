@@ -48,7 +48,7 @@
 
   // --- Intro sequence ---
   const introSequence = [
-    { type: 'agent', text: "Hey — I'm Lela. I run the front desk here at Crystal.", delay: 800 },
+    { type: 'agent', text: "Hey — I'm Lela. I run the front desk here at Crystal AI.", delay: 800 },
     { type: 'user', text: "Wait, you're not a real person?", delay: 2000 },
     { type: 'agent', text: "Nope! I'm AI. But I pick up every call, book appointments, take messages, and hand off anything tricky to the right human. I just don't take lunch breaks.", delay: 1400 },
     { type: 'agent', text: "Go ahead — ask me something, or pretend you're calling in. I'll show you how it works.", delay: 1200 },
@@ -117,6 +117,16 @@
 
   setTimeout(playIntro, 600);
 
+  // Build context from the intro so Lela knows what was already "said"
+  function buildIntroContext(): string {
+    const lines = introSequence.map(s =>
+      s.type === 'agent' ? `Lela: ${s.text}` : `Visitor: ${s.text}`
+    );
+    return "[The following conversation was shown to the visitor on the website before they typed their first message]\n" +
+      lines.join("\n") +
+      "\n[Visitor is now typing their first real message]\n\n";
+  }
+
   // --- Real chat ---
   async function sendMessage() {
     const text = inputEl.value.trim();
@@ -128,11 +138,14 @@
     addMsg(text, 'user');
     showTyping();
 
+    const isFirstMessage = !threadId;
+    const messageToSend = isFirstMessage ? buildIntroContext() + text : text;
+
     try {
       const resp = await fetch('https://ops.buildcrystal.ai/public/chat', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ message: text, thread_id: threadId }),
+        body: JSON.stringify({ message: messageToSend, thread_id: threadId }),
       });
 
       if (!resp.ok) throw new Error(`${resp.status}`);
