@@ -91,7 +91,7 @@
       hideTyping();
       setTimeout(() => {
         inputArea.classList.add('invite');
-        inputEl.focus();
+        inputEl.focus({ preventScroll: true });
       }, 600);
       return;
     }
