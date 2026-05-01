@@ -32,8 +32,8 @@ import Base from '../layouts/Base.astro';
           <span class="stat-label">Crystal Answer Rate</span>
         </div>
         <div class="stat-card stat-neutral">
-          <span class="stat-value" id="roiValue">0x</span>
-          <span class="stat-label">Your ROI</span>
+          <span class="stat-value">24/7</span>
+          <span class="stat-label">Coverage</span>
         </div>
       </div>
 
@@ -103,8 +103,6 @@ import Base from '../layouts/Base.astro';
     var lostCustomers = Math.round(missed * data.closeRate);
     var monthlyLoss = lostCustomers * data.jobValue;
     var annualLoss = monthlyLoss * 12;
-    var roi = (monthlyLoss / 2100).toFixed(1);
-
     function fmt(n) {
       return '$' + n.toLocaleString();
     }
@@ -112,8 +110,6 @@ import Base from '../layouts/Base.astro';
     document.getElementById('annualLoss').textContent = fmt(annualLoss);
     document.getElementById('recoveryAmount').textContent = fmt(annualLoss);
     document.getElementById('missedCalls').textContent = missed.toLocaleString();
-    document.getElementById('roiValue').textContent = roi + 'x';
-
     document.getElementById('bCalls').textContent = data.calls.toLocaleString();
     document.getElementById('bMissed').textContent = missed.toLocaleString() + ' (' + data.missRate + '%)';
     document.getElementById('bAnswered').textContent = missed.toLocaleString() + ' (100%)';
