@@ -151,7 +151,7 @@ import Base from '../layouts/Base.astro';
 
     sessionStorage.setItem('calculatorData', JSON.stringify(data));
 
-    fetch('https://ops.buildcrystal.ai/webhooks/n8n/calculator-lead', {
+    fetch('https://ops.buildcrystal.ai/webhook/calculator-lead', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(data)
