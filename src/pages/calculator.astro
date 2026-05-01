@@ -1,0 +1,355 @@
+---
+import Base from '../layouts/Base.astro';
+---
+
+<Base
+  title="Missed Call Revenue Calculator | Crystal AI"
+  description="Find out how much revenue your business loses to missed calls every year. Free calculator with personalized report."
+  active="calculator"
+>
+
+  <section class="band">
+    <div class="frame calc-page">
+      <p class="eyebrow">REVENUE CALCULATOR</p>
+      <h1>How much are missed calls costing your business?</h1>
+      <p class="subtitle">85% of callers who reach voicemail never call back. 62% call a competitor instead.</p>
+
+      <div class="calc-card">
+        <p class="section-label">YOUR BUSINESS</p>
+        <form id="calcForm" autocomplete="off">
+          <div class="row">
+            <div class="field">
+              <label for="industry">Industry</label>
+              <select id="industry" name="industry" required>
+                <option value="" disabled selected>Select your industry</option>
+                <option value="plumbing">Plumbing / HVAC</option>
+                <option value="dental">Dental</option>
+                <option value="legal">Legal</option>
+                <option value="auto">Auto Repair</option>
+                <option value="realestate">Real Estate</option>
+                <option value="medical">Medical Practice</option>
+                <option value="salon">Salon / Spa</option>
+                <option value="roofing">Roofing</option>
+                <option value="vet">Veterinary</option>
+                <option value="other">Other</option>
+              </select>
+              <span class="hint">Choose your industry for benchmarks</span>
+            </div>
+            <div class="field">
+              <label for="calls">Monthly Inbound Calls</label>
+              <input type="number" id="calls" name="calls" min="1" placeholder="e.g. 200" required />
+              <span class="hint">Total calls your business receives per month</span>
+            </div>
+          </div>
+          <div class="row">
+            <div class="field">
+              <label for="jobValue">Avg Job Value ($)</label>
+              <input type="number" id="jobValue" name="jobValue" min="1" placeholder="e.g. 460" required />
+              <span class="hint" id="jobValueHint">Average revenue per customer</span>
+            </div>
+            <div class="field">
+              <label for="missRate">Missed Call Rate (%)</label>
+              <input type="number" id="missRate" name="missRate" min="1" max="100" placeholder="e.g. 27" required />
+              <span class="hint" id="missRateHint">Percentage of calls that go unanswered</span>
+            </div>
+          </div>
+          <button type="submit" class="cta-btn">Show me what I'm losing</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Lead capture modal -->
+  <div class="modal-overlay" id="leadModal" hidden>
+    <div class="modal-card">
+      <h2>Your report is ready.</h2>
+      <p class="modal-sub">Enter your info and we'll show you the full breakdown.</p>
+      <form id="leadForm" autocomplete="off">
+        <div class="modal-field">
+          <label for="leadName">Name</label>
+          <input type="text" id="leadName" name="name" required placeholder="Your name" />
+        </div>
+        <div class="modal-field">
+          <label for="leadEmail">Email</label>
+          <input type="email" id="leadEmail" name="email" required placeholder="you@company.com" />
+        </div>
+        <button type="submit" class="cta-btn">Get My Report</button>
+      </form>
+      <p class="fine-print">No spam. Just your report.</p>
+    </div>
+  </div>
+
+</Base>
+
+<script>
+  var BENCHMARKS = {
+    plumbing: { missRate: 27, jobValue: 460, closeRate: 0.55, hint: '$350-550', missHint: '22-30%', text: 'Home service companies miss 27% of inbound calls on weekdays and up to 41% on weekends. 78% of customers have abandoned a business after a single unanswered call.', source: 'Sources: ServiceTitan (2024), CallRail Consumer Survey' },
+    dental: { missRate: 32, jobValue: 259, closeRate: 0.52, hint: '$200-400', missHint: '25-35%', text: 'Dental practices miss approximately 32% of phone calls during business hours. Only 14% of new patients leave a voicemail — the other 86% find another dentist.', source: 'Sources: Resonate AI, TrueLark (8M patient conversations)' },
+    legal: { missRate: 35, jobValue: 3500, closeRate: 0.14, hint: '$2,000-5,000', missHint: '30-40%', text: 'Law firms responding within 5 minutes are 21x more likely to convert. The average inquiry-to-client rate is just 14%.', source: 'Sources: LEXGRO 2024, Law Leaders' },
+    auto: { missRate: 28, jobValue: 586, closeRate: 0.60, hint: '$500-750', missHint: '25-32%', text: 'The average auto repair order is $586. Customers with breakdowns call the next shop within 30 seconds.', source: 'Sources: Tekmetric 2024 Industry Report' },
+    realestate: { missRate: 30, jobValue: 7500, closeRate: 0.03, hint: '$6,000-10,000', missHint: '28-35%', text: 'Phone interactions account for 38% of all closed transactions. The first agent to answer gets the listing.', source: 'Sources: NAR (2024), RealGeeks' },
+    medical: { missRate: 24, jobValue: 200, closeRate: 0.70, hint: '$150-300', missHint: '20-28%', text: 'Medical practices lose $150,000 annually from missed scheduling calls. 71% of patients still schedule by phone.', source: 'Sources: Curogram (2024), MGMA' },
+    salon: { missRate: 32, jobValue: 117, closeRate: 0.75, hint: '$85-140', missHint: '28-35%', text: 'Spa customers spend $117 per visit. One lost client at monthly visits costs $1,400/year.', source: 'Sources: Mindbody/Zenoti 2024 Benchmark Report' },
+    roofing: { missRate: 30, jobValue: 9500, closeRate: 0.25, hint: '$8,000-12,000', missHint: '28-35%', text: 'Average roof replacement: $9,500-$11,000. After storms, miss rates hit 50%.', source: "Sources: ConsumerAffairs 2024, Roofer's Guild" },
+    vet: { missRate: 24, jobValue: 430, closeRate: 0.70, hint: '$300-500', missHint: '20-28%', text: 'Average vet transaction: $430. Lifetime client value: $5,000 over 10+ years.', source: 'Sources: AVMA 2024 Benchmarks' },
+    other: { missRate: 25, jobValue: 350, closeRate: 0.50, hint: '$200-500', missHint: '22-30%', text: 'The average small business loses $126,000/year to missed calls. Only 38% of calls reach a live person.', source: 'Sources: 411 Locals 2024 Study' }
+  };
+
+  var industrySelect = document.getElementById('industry');
+  var jobValueInput = document.getElementById('jobValue');
+  var missRateInput = document.getElementById('missRate');
+  var jobValueHint = document.getElementById('jobValueHint');
+  var missRateHint = document.getElementById('missRateHint');
+  var calcForm = document.getElementById('calcForm');
+  var leadModal = document.getElementById('leadModal');
+  var leadForm = document.getElementById('leadForm');
+
+  industrySelect.addEventListener('change', function () {
+    var b = BENCHMARKS[this.value];
+    if (!b) return;
+    jobValueInput.value = b.jobValue;
+    missRateInput.value = b.missRate;
+    jobValueHint.textContent = 'Industry average: ' + b.hint;
+    missRateHint.textContent = 'Industry average: ' + b.missHint;
+  });
+
+  calcForm.addEventListener('submit', function (e) {
+    e.preventDefault();
+    leadModal.hidden = false;
+  });
+
+  leadModal.addEventListener('click', function (e) {
+    if (e.target === leadModal) {
+      leadModal.hidden = true;
+    }
+  });
+
+  leadForm.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var industry = industrySelect.value;
+    var b = BENCHMARKS[industry] || BENCHMARKS.other;
+    var calls = parseInt(jobValueInput.value ? document.getElementById('calls').value : '0', 10);
+    var jobValue = parseInt(jobValueInput.value, 10);
+    var missRate = parseInt(missRateInput.value, 10);
+    var closeRate = b.closeRate;
+
+    var missed = Math.round(calls * missRate / 100);
+    var lostCustomers = Math.round(missed * closeRate);
+    var monthlyLoss = lostCustomers * jobValue;
+    var annualLoss = monthlyLoss * 12;
+
+    var data = {
+      name: document.getElementById('leadName').value,
+      email: document.getElementById('leadEmail').value,
+      industry: industry,
+      calls: calls,
+      jobValue: jobValue,
+      missRate: missRate,
+      closeRate: closeRate,
+      annualLoss: annualLoss
+    };
+
+    sessionStorage.setItem('calculatorData', JSON.stringify(data));
+
+    fetch('https://ops.buildcrystal.ai/webhooks/n8n/calculator-lead', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data)
+    }).catch(function () {});
+
+    window.location.href = '/your-report';
+  });
+</script>
+
+<style>
+  .band {
+    padding: 4rem 0;
+  }
+
+  .calc-page {
+    max-width: 640px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .eyebrow {
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+  }
+
+  h1 {
+    font-size: 2.2rem;
+    line-height: 1.2;
+    color: var(--ink);
+    margin: 0 0 1rem;
+  }
+
+  .subtitle {
+    font-size: 1.05rem;
+    color: var(--ink-muted);
+    margin-bottom: 2.5rem;
+    line-height: 1.55;
+  }
+
+  .calc-card {
+    background: #fff;
+    border: 1px solid var(--rule);
+    border-radius: 12px;
+    padding: 2rem;
+    text-align: left;
+  }
+
+  .section-label {
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+  }
+
+  .row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.25rem;
+    margin-bottom: 1.25rem;
+  }
+
+  @media (max-width: 520px) {
+    .row {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+  }
+
+  .field label {
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--ink-2);
+  }
+
+  .field input,
+  .field select {
+    background: var(--paper);
+    border: 1px solid var(--rule);
+    border-radius: 6px;
+    padding: 0.65rem 0.75rem;
+    font-size: 0.95rem;
+    color: var(--ink);
+    transition: border-color 150ms ease;
+  }
+
+  .field input:focus,
+  .field select:focus {
+    outline: none;
+    border-color: var(--accent);
+  }
+
+  .hint {
+    font-size: 0.78rem;
+    color: var(--ink-muted);
+  }
+
+  .cta-btn {
+    display: block;
+    width: 100%;
+    padding: 0.9rem 1.5rem;
+    background: var(--accent);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 1rem;
+    transition: background 150ms ease;
+  }
+
+  .cta-btn:hover {
+    background: var(--accent-hover);
+  }
+
+  /* Modal */
+  .modal-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+  }
+
+  .modal-overlay[hidden] {
+    display: none;
+  }
+
+  .modal-card {
+    background: #fff;
+    border: 1px solid var(--rule);
+    border-radius: 12px;
+    padding: 2.5rem 2rem;
+    max-width: 400px;
+    width: 90%;
+    text-align: center;
+  }
+
+  .modal-card h2 {
+    font-size: 1.5rem;
+    color: var(--ink);
+    margin: 0 0 0.5rem;
+  }
+
+  .modal-sub {
+    color: var(--ink-muted);
+    font-size: 0.95rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .modal-field {
+    text-align: left;
+    margin-bottom: 1rem;
+  }
+
+  .modal-field label {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--ink-2);
+    margin-bottom: 0.3rem;
+  }
+
+  .modal-field input {
+    width: 100%;
+    background: var(--paper);
+    border: 1px solid var(--rule);
+    border-radius: 6px;
+    padding: 0.65rem 0.75rem;
+    font-size: 0.95rem;
+    color: var(--ink);
+    box-sizing: border-box;
+    transition: border-color 150ms ease;
+  }
+
+  .modal-field input:focus {
+    outline: none;
+    border-color: var(--accent);
+  }
+
+  .fine-print {
+    font-size: 0.78rem;
+    color: var(--ink-muted);
+    margin-top: 1rem;
+  }
+</style>

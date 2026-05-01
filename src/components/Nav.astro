@@ -2,7 +2,7 @@
 import CrystalMark from './CrystalMark.astro';
 
 interface Props {
-  active?: 'home' | 'workers' | 'about';
+  active?: 'home' | 'workers' | 'about' | 'calculator';
 }
 
 const { active } = Astro.props;
@@ -16,6 +16,7 @@ const { active } = Astro.props;
     </a>
     <div class="topnav-links">
       <a href="/workers" class:list={[{ current: active === 'workers' }]}>Workers</a>
+      <a href="/calculator" class:list={[{ current: active === 'calculator' }]}>Calculator</a>
       <a href="/about" class:list={[{ current: active === 'about' }]}>About</a>
       <a href="#contact" class="topnav-cta" data-hire data-role="general">Book a working session</a>
     </div>

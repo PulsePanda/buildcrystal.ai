@@ -1,0 +1,381 @@
+---
+import Base from '../layouts/Base.astro';
+---
+
+<Base
+  title="Your Revenue Recovery Report | Crystal AI"
+  description="Your personalized missed call revenue report from Crystal AI."
+  active="calculator"
+>
+
+  <section class="band">
+    <div class="frame report-page" id="reportContent">
+
+      <!-- Hero -->
+      <div class="hero-card">
+        <p class="eyebrow">REVENUE RECOVERY REPORT</p>
+        <p class="hero-tagline">Every missed call is a customer who called someone else.</p>
+        <p class="big-number" id="annualLoss">$0</p>
+        <p class="big-label">lost to unanswered calls every year</p>
+        <div class="hero-divider"></div>
+        <p class="recovery-line">With a 100% answer rate, Crystal recovers <span class="recovery-amount" id="recoveryAmount">$0</span>/yr</p>
+      </div>
+
+      <!-- Stats row -->
+      <div class="stats-row">
+        <div class="stat-card stat-red">
+          <span class="stat-value" id="missedCalls">0</span>
+          <span class="stat-label">Missed Calls / month</span>
+        </div>
+        <div class="stat-card stat-green">
+          <span class="stat-value">100%</span>
+          <span class="stat-label">Crystal Answer Rate</span>
+        </div>
+        <div class="stat-card stat-neutral">
+          <span class="stat-value" id="roiValue">0x</span>
+          <span class="stat-label">Your ROI</span>
+        </div>
+      </div>
+
+      <!-- Math breakdown -->
+      <div class="breakdown-card">
+        <h2>The math</h2>
+        <table class="breakdown-table">
+          <tbody>
+            <tr><td>Monthly inbound calls</td><td class="val" id="bCalls">0</td></tr>
+            <tr><td>Currently going unanswered</td><td class="val" id="bMissed">0</td></tr>
+            <tr><td>Crystal answers</td><td class="val" id="bAnswered">0</td></tr>
+            <tr><td>Appointments booked</td><td class="val" id="bBooked">0</td></tr>
+            <tr><td>Average job value</td><td class="val" id="bJobValue">$0</td></tr>
+            <tr><td>Monthly revenue recovered</td><td class="val" id="bMonthly">$0</td></tr>
+            <tr class="highlight-row"><td>Annual revenue recovered</td><td class="val" id="bAnnual">$0</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Industry insight -->
+      <div class="insight-card">
+        <p class="insight-label">INDUSTRY INSIGHT</p>
+        <p class="insight-text" id="insightText"></p>
+        <p class="insight-source" id="insightSource"></p>
+      </div>
+
+      <!-- CTA -->
+      <div class="cta-card">
+        <h2>Stop losing revenue to voicemail.</h2>
+        <p>Crystal answers 100% of your calls, books appointments, and never takes a sick day. Try it free for 28 days.</p>
+        <a href="https://cal.com/vanalstyne/workingsession" class="cta-btn">Book a Free Working Session</a>
+        <p class="fine-print">28-Day Crystal Guarantee: If we don't prove our value, walk away.</p>
+      </div>
+
+      <!-- Footer link -->
+      <div class="footer-link">
+        <a href="/">buildcrystal.ai</a>
+      </div>
+
+    </div>
+  </section>
+
+</Base>
+
+<script>
+  var BENCHMARKS = {
+    plumbing: { missRate: 27, jobValue: 460, closeRate: 0.55, text: 'Home service companies miss 27% of inbound calls on weekdays and up to 41% on weekends. 78% of customers have abandoned a business after a single unanswered call.', source: 'Sources: ServiceTitan (2024), CallRail Consumer Survey' },
+    dental: { missRate: 32, jobValue: 259, closeRate: 0.52, text: 'Dental practices miss approximately 32% of phone calls during business hours. Only 14% of new patients leave a voicemail — the other 86% find another dentist.', source: 'Sources: Resonate AI, TrueLark (8M patient conversations)' },
+    legal: { missRate: 35, jobValue: 3500, closeRate: 0.14, text: 'Law firms responding within 5 minutes are 21x more likely to convert. The average inquiry-to-client rate is just 14%.', source: 'Sources: LEXGRO 2024, Law Leaders' },
+    auto: { missRate: 28, jobValue: 586, closeRate: 0.60, text: 'The average auto repair order is $586. Customers with breakdowns call the next shop within 30 seconds.', source: 'Sources: Tekmetric 2024 Industry Report' },
+    realestate: { missRate: 30, jobValue: 7500, closeRate: 0.03, text: 'Phone interactions account for 38% of all closed transactions. The first agent to answer gets the listing.', source: 'Sources: NAR (2024), RealGeeks' },
+    medical: { missRate: 24, jobValue: 200, closeRate: 0.70, text: 'Medical practices lose $150,000 annually from missed scheduling calls. 71% of patients still schedule by phone.', source: 'Sources: Curogram (2024), MGMA' },
+    salon: { missRate: 32, jobValue: 117, closeRate: 0.75, text: 'Spa customers spend $117 per visit. One lost client at monthly visits costs $1,400/year.', source: 'Sources: Mindbody/Zenoti 2024 Benchmark Report' },
+    roofing: { missRate: 30, jobValue: 9500, closeRate: 0.25, text: 'Average roof replacement: $9,500-$11,000. After storms, miss rates hit 50%.', source: "Sources: ConsumerAffairs 2024, Roofer's Guild" },
+    vet: { missRate: 24, jobValue: 430, closeRate: 0.70, text: 'Average vet transaction: $430. Lifetime client value: $5,000 over 10+ years.', source: 'Sources: AVMA 2024 Benchmarks' },
+    other: { missRate: 25, jobValue: 350, closeRate: 0.50, text: 'The average small business loses $126,000/year to missed calls. Only 38% of calls reach a live person.', source: 'Sources: 411 Locals 2024 Study' }
+  };
+
+  var raw = sessionStorage.getItem('calculatorData');
+  if (!raw) {
+    window.location.href = '/calculator';
+  } else {
+    var data = JSON.parse(raw);
+    var b = BENCHMARKS[data.industry] || BENCHMARKS.other;
+
+    var missed = Math.round(data.calls * data.missRate / 100);
+    var lostCustomers = Math.round(missed * data.closeRate);
+    var monthlyLoss = lostCustomers * data.jobValue;
+    var annualLoss = monthlyLoss * 12;
+    var roi = (monthlyLoss / 2100).toFixed(1);
+
+    function fmt(n) {
+      return '$' + n.toLocaleString();
+    }
+
+    document.getElementById('annualLoss').textContent = fmt(annualLoss);
+    document.getElementById('recoveryAmount').textContent = fmt(annualLoss);
+    document.getElementById('missedCalls').textContent = missed.toLocaleString();
+    document.getElementById('roiValue').textContent = roi + 'x';
+
+    document.getElementById('bCalls').textContent = data.calls.toLocaleString();
+    document.getElementById('bMissed').textContent = missed.toLocaleString() + ' (' + data.missRate + '%)';
+    document.getElementById('bAnswered').textContent = missed.toLocaleString() + ' (100%)';
+    document.getElementById('bBooked').textContent = lostCustomers.toLocaleString() + ' (' + Math.round(data.closeRate * 100) + '%)';
+    document.getElementById('bJobValue').textContent = fmt(data.jobValue);
+    document.getElementById('bMonthly').textContent = fmt(monthlyLoss);
+    document.getElementById('bAnnual').textContent = fmt(annualLoss);
+
+    document.getElementById('insightText').textContent = b.text;
+    document.getElementById('insightSource').textContent = b.source;
+  }
+</script>
+
+<style>
+  .band {
+    padding: 3rem 0 4rem;
+  }
+
+  .report-page {
+    max-width: 680px;
+    margin: 0 auto;
+  }
+
+  .eyebrow {
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+  }
+
+  /* Hero card */
+  .hero-card {
+    background: var(--ink);
+    color: #fff;
+    border-radius: 12px;
+    padding: 2.5rem 2rem;
+    text-align: center;
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-card .eyebrow {
+    color: var(--accent);
+  }
+
+  .hero-tagline {
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 1.5rem;
+  }
+
+  .big-number {
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: var(--accent);
+    margin: 0;
+    line-height: 1.1;
+  }
+
+  .big-label {
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.6);
+    margin-top: 0.5rem;
+  }
+
+  .hero-divider {
+    height: 1px;
+    background: rgba(255, 255, 255, 0.15);
+    margin: 1.5rem 0;
+  }
+
+  .recovery-line {
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.8);
+  }
+
+  .recovery-amount {
+    color: var(--ok);
+    font-weight: 600;
+  }
+
+  /* Stats row */
+  .stats-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  @media (max-width: 520px) {
+    .stats-row {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .stat-card {
+    background: #fff;
+    border: 1px solid var(--rule);
+    border-radius: 12px;
+    padding: 1.25rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+  }
+
+  .stat-value {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--ink);
+  }
+
+  .stat-label {
+    font-size: 0.8rem;
+    color: var(--ink-muted);
+  }
+
+  .stat-red .stat-value {
+    color: #c0392b;
+  }
+
+  .stat-green .stat-value {
+    color: var(--ok);
+  }
+
+  /* Breakdown */
+  .breakdown-card {
+    background: #fff;
+    border: 1px solid var(--rule);
+    border-radius: 12px;
+    padding: 2rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .breakdown-card h2 {
+    font-size: 1.15rem;
+    color: var(--ink);
+    margin: 0 0 1.25rem;
+  }
+
+  .breakdown-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  .breakdown-table td {
+    padding: 0.6rem 0;
+    border-bottom: 1px solid var(--rule);
+    font-size: 0.93rem;
+    color: var(--ink-2);
+  }
+
+  .breakdown-table .val {
+    text-align: right;
+    font-weight: 500;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .breakdown-table tr:last-child td {
+    border-bottom: none;
+  }
+
+  .highlight-row td {
+    color: var(--ok) !important;
+    font-weight: 600 !important;
+    font-size: 1rem !important;
+    padding-top: 1rem;
+    border-top: 2px solid var(--ok);
+  }
+
+  /* Insight */
+  .insight-card {
+    background: var(--accent-wash);
+    border: 1px solid var(--accent);
+    border-radius: 12px;
+    padding: 1.75rem 2rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .insight-label {
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+  }
+
+  .insight-text {
+    font-size: 0.95rem;
+    color: var(--ink-2);
+    line-height: 1.55;
+    margin-bottom: 0.75rem;
+  }
+
+  .insight-source {
+    font-size: 0.8rem;
+    color: var(--ink-muted);
+    font-style: italic;
+  }
+
+  /* CTA */
+  .cta-card {
+    background: #fff;
+    border: 1px solid var(--rule);
+    border-radius: 12px;
+    padding: 2.5rem 2rem;
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  .cta-card h2 {
+    font-size: 1.5rem;
+    color: var(--ink);
+    margin: 0 0 0.75rem;
+  }
+
+  .cta-card p {
+    color: var(--ink-muted);
+    font-size: 0.95rem;
+    line-height: 1.55;
+    margin-bottom: 1.5rem;
+  }
+
+  .cta-btn {
+    display: inline-block;
+    padding: 0.9rem 2rem;
+    background: var(--accent);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background 150ms ease;
+  }
+
+  .cta-btn:hover {
+    background: var(--accent-hover);
+  }
+
+  .fine-print {
+    font-size: 0.78rem;
+    color: var(--ink-muted);
+    margin-top: 1rem;
+  }
+
+  /* Footer link */
+  .footer-link {
+    text-align: center;
+    padding: 1rem 0;
+  }
+
+  .footer-link a {
+    color: var(--ink-muted);
+    font-size: 0.85rem;
+    text-decoration: none;
+  }
+
+  .footer-link a:hover {
+    color: var(--accent);
+  }
+</style>
