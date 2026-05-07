@@ -1,0 +1,250 @@
+---
+import Base from '../layouts/Base.astro';
+---
+
+<Base
+  title="AI Prompt Sheet for Trades Businesses | Crystal AI"
+  description="13 ready-to-use AI prompts for HVAC, plumbing, and electrical contractors. Follow-ups, estimates, customer communication, and operations. Print it and start using it today."
+>
+
+  <section class="band">
+    <div class="frame lp">
+      <p class="eyebrow">FREE PROMPT SHEET</p>
+      <h1>13 AI Prompts for Trades Businesses</h1>
+      <p class="subtitle">Ready-to-use instructions for ChatGPT, Claude, or any AI chat. Print it. Tape it to your desk. Start using it today.</p>
+
+      <a href="/downloads/follow-up-prompt-sheet.pdf" class="cta-btn" download>Download the Prompt Sheet (PDF)</a>
+
+      <div class="card">
+        <p class="card-label">WHAT'S ON THE SHEET</p>
+        <div class="prompt-grid">
+          <div class="prompt-group">
+            <p class="group-label">Follow-Up System</p>
+            <ul>
+              <li>Day-3 check-in</li>
+              <li>Week-2 nudge</li>
+              <li>Last-chance before quote expires</li>
+              <li>Post-job review ask</li>
+              <li>Referral tap</li>
+              <li>Past customer re-engage</li>
+            </ul>
+          </div>
+          <div class="prompt-group">
+            <p class="group-label">Estimates & Communication</p>
+            <ul>
+              <li>Messy notes to clean estimate</li>
+              <li>Scope of work write-up</li>
+              <li>Reply to a complaint</li>
+              <li>Quick reply to a new lead</li>
+              <li>Overdue invoice follow-up</li>
+              <li>Crew job instructions</li>
+              <li>Google review response</li>
+            </ul>
+          </div>
+        </div>
+        <p class="card-note">Plus 3 blank slots to add your own prompts as you find what works.</p>
+      </div>
+
+      <div class="card">
+        <p class="card-label">HOW TO USE IT</p>
+        <ol class="steps">
+          <li>Fill out the Business Brief from the <a href="/playbook">Playbook</a> (5 minutes, one time)</li>
+          <li>Open any AI chat and paste your Brief</li>
+          <li>Copy a prompt from the sheet, fill in the brackets, hit send</li>
+        </ol>
+      </div>
+
+      <div class="companion">
+        <p>Haven't set up your Business Brief yet? Grab the <a href="/playbook">Playbook</a> first — it walks you through the whole system in 10 minutes.</p>
+      </div>
+
+      <div class="cta-footer">
+        <a href="/downloads/follow-up-prompt-sheet.pdf" class="cta-btn" download>Download the Prompt Sheet (PDF)</a>
+        <p class="fine-print">No email required. Just the prompts.</p>
+      </div>
+
+    </div>
+  </section>
+
+</Base>
+
+<style>
+  .band {
+    padding: 4rem 0;
+  }
+
+  .lp {
+    max-width: 620px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .eyebrow {
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+  }
+
+  h1 {
+    font-size: 2.2rem;
+    line-height: 1.2;
+    color: var(--ink);
+    margin: 0 0 1rem;
+  }
+
+  .subtitle {
+    font-size: 1.05rem;
+    color: var(--ink-muted);
+    margin-bottom: 2rem;
+    line-height: 1.55;
+  }
+
+  .cta-btn {
+    display: inline-block;
+    padding: 0.9rem 2rem;
+    background: var(--accent);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background 150ms ease;
+  }
+
+  .cta-btn:hover {
+    background: var(--accent-hover);
+  }
+
+  .card {
+    background: #fff;
+    border: 1px solid var(--rule);
+    border-radius: 12px;
+    padding: 2rem;
+    text-align: left;
+    margin-top: 2rem;
+  }
+
+  .card-label {
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-weight: 600;
+    margin: 0 0 1rem;
+  }
+
+  .card-note {
+    font-size: 0.88rem;
+    color: var(--ink-muted);
+    margin: 1rem 0 0;
+    font-style: italic;
+  }
+
+  .prompt-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+  }
+
+  @media (max-width: 520px) {
+    .prompt-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .group-label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--ink);
+    margin: 0 0 0.5rem;
+  }
+
+  .prompt-group ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .prompt-group li {
+    position: relative;
+    padding-left: 1.25rem;
+    margin-bottom: 0.4rem;
+    font-size: 0.9rem;
+    color: var(--ink-2);
+    line-height: 1.45;
+  }
+
+  .prompt-group li::before {
+    content: '—';
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    font-weight: 600;
+  }
+
+  .steps {
+    padding-left: 1.25rem;
+    margin: 0;
+  }
+
+  .steps li {
+    margin-bottom: 0.65rem;
+    font-size: 0.95rem;
+    color: var(--ink-2);
+    line-height: 1.5;
+  }
+
+  .steps li:last-child {
+    margin-bottom: 0;
+  }
+
+  .steps a {
+    color: var(--accent);
+    font-weight: 500;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+
+  .steps a:hover {
+    color: var(--accent-hover);
+  }
+
+  .companion {
+    margin-top: 2rem;
+    padding: 1.25rem 1.5rem;
+    background: var(--paper-2);
+    border-radius: 8px;
+  }
+
+  .companion p {
+    margin: 0;
+    font-size: 0.95rem;
+    color: var(--ink-2);
+  }
+
+  .companion a {
+    color: var(--accent);
+    font-weight: 500;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+
+  .companion a:hover {
+    color: var(--accent-hover);
+  }
+
+  .cta-footer {
+    margin-top: 2.5rem;
+  }
+
+  .fine-print {
+    font-size: 0.78rem;
+    color: var(--ink-muted);
+    margin-top: 0.75rem;
+  }
+</style>

@@ -1,0 +1,184 @@
+---
+import Base from '../layouts/Base.astro';
+---
+
+<Base
+  title="Never Lose a Quote to a Slow Reply Again | Crystal AI"
+  description="Free playbook: the follow-up system that closes more jobs using AI you already have. Built for HVAC, plumbing, and electrical contractors."
+>
+
+  <section class="band">
+    <div class="frame lp">
+      <p class="eyebrow">FREE PLAYBOOK</p>
+      <h1>Never Lose a Quote to a Slow Reply Again</h1>
+      <p class="subtitle">The follow-up system that closes more jobs — using AI you already have. Set it up in 10 minutes.</p>
+
+      <a href="/downloads/never-lose-a-quote.pdf" class="cta-btn" download>Download the Playbook (PDF)</a>
+
+      <div class="card">
+        <p class="card-label">WHAT'S INSIDE</p>
+        <ul class="checklist">
+          <li>A Business Brief template that makes any AI sound like you — fill it out once, reuse it forever</li>
+          <li>5 follow-up prompts that cover every stage from fresh quote to referral ask</li>
+          <li>A correction loop that makes the AI get better every time you use it</li>
+          <li>The math on why this matters — $14,000/month from emails you were already going to write</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <p class="card-label">HOW IT WORKS</p>
+        <p class="card-text">You paste a one-paragraph brief about your business into ChatGPT or Claude. Then you use the included prompts to draft follow-ups in 30 seconds. No coding. No new software. Just the AI tools you already have, working harder for you.</p>
+      </div>
+
+      <div class="companion">
+        <p>Grab the companion <a href="/prompts">Prompt Sheet</a> — 13 ready-to-use prompts you can print and keep at your desk.</p>
+      </div>
+
+      <div class="cta-footer">
+        <a href="/downloads/never-lose-a-quote.pdf" class="cta-btn" download>Download the Playbook (PDF)</a>
+        <p class="fine-print">No email required. Just the guide.</p>
+      </div>
+
+    </div>
+  </section>
+
+</Base>
+
+<style>
+  .band {
+    padding: 4rem 0;
+  }
+
+  .lp {
+    max-width: 620px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .eyebrow {
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+  }
+
+  h1 {
+    font-size: 2.2rem;
+    line-height: 1.2;
+    color: var(--ink);
+    margin: 0 0 1rem;
+  }
+
+  .subtitle {
+    font-size: 1.05rem;
+    color: var(--ink-muted);
+    margin-bottom: 2rem;
+    line-height: 1.55;
+  }
+
+  .cta-btn {
+    display: inline-block;
+    padding: 0.9rem 2rem;
+    background: var(--accent);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background 150ms ease;
+  }
+
+  .cta-btn:hover {
+    background: var(--accent-hover);
+  }
+
+  .card {
+    background: #fff;
+    border: 1px solid var(--rule);
+    border-radius: 12px;
+    padding: 2rem;
+    text-align: left;
+    margin-top: 2rem;
+  }
+
+  .card-label {
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-weight: 600;
+    margin: 0 0 1rem;
+  }
+
+  .card-text {
+    font-size: 0.95rem;
+    color: var(--ink-2);
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  .checklist {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .checklist li {
+    position: relative;
+    padding-left: 1.5rem;
+    margin-bottom: 0.85rem;
+    font-size: 0.95rem;
+    color: var(--ink-2);
+    line-height: 1.5;
+  }
+
+  .checklist li:last-child {
+    margin-bottom: 0;
+  }
+
+  .checklist li::before {
+    content: '—';
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    font-weight: 600;
+  }
+
+  .companion {
+    margin-top: 2rem;
+    padding: 1.25rem 1.5rem;
+    background: var(--paper-2);
+    border-radius: 8px;
+  }
+
+  .companion p {
+    margin: 0;
+    font-size: 0.95rem;
+    color: var(--ink-2);
+  }
+
+  .companion a {
+    color: var(--accent);
+    font-weight: 500;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+
+  .companion a:hover {
+    color: var(--accent-hover);
+  }
+
+  .cta-footer {
+    margin-top: 2.5rem;
+  }
+
+  .fine-print {
+    font-size: 0.78rem;
+    color: var(--ink-muted);
+    margin-top: 0.75rem;
+  }
+</style>
